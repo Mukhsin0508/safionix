@@ -1,4 +1,4 @@
-import { BookingBlock, CommentsSection, HomeHeader, OfferBlock, Showcase } from "@/components"
+import { BookingBlock, CommentsSection, HomeHeader, OfferBlock, Showcase, SkillsPart } from "@/components"
 
 export default function Home() {
   return (
@@ -9,6 +9,7 @@ export default function Home() {
         <Showcase className="mt-[110px]" />
         <BookingBlock className="mt-[110px]" />
         <CommentsSection className="mt-[110px]" />
+        <SkillsPart className="mt-[110px]" />
       </main>
     </div>
   )

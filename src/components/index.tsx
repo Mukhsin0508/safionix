@@ -32,3 +32,5 @@ export {default as DashboardPrimaryTitle} from "./ui/dashboard-primary-title"
 export {default as WordRotate} from "./ui/word-rotate"
 export {default as TimeDisplay} from "./ui/time-display"
 
+//
+export {default as SkillsPart} from "./skillsPart"
