@@ -34,3 +34,4 @@ export {default as TimeDisplay} from "./ui/time-display"
 
 //
 export {default as SkillsPart} from "./skillsPart"
+export {default as SuccesStories} from "./succesStories"
