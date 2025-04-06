@@ -1,0 +1,53 @@
+{
+  "navbar-link-1": "Bundles",
+  "navbar-link-2": "Services",
+  "navbar-link-3": "Become a PRO 👑",
+  "navbar-link-4": "Club House",
+  "navbar-link-5": "More",
+  "navbar-link-6": "Browse bundles",
+  "navbar-link-7": "Star on Instagram",
+  "navbar-link-8": "More",
+  "navbar-link-9": "Founder",
+  "navbar-link-10": "Daily Newsletter",
+  "navbar-link-11": "Live Events",
+  "navbar-link-12": "Reviews 💜",
+  "navbar-link-13": "Telegram Channel",
+  "navbar-link-14": "YouTube Channel",
+  "navbar-link-15": "About",
+  "navbar-link-16": "Your Room",
+
+  "offer-block": {
+    "text-1": "Limited offer",
+    "text-2": "Get -$20 any bundle with code DES5G2N"
+  },
+
+  "header-1": "Turning 'Impossible' into your competitive advantage",
+  "header-2": "30+ free lessons, bundles and books, <bold>custom training courses.</bold> We <bold>design</bold> and <bold>develop</bold> tech <wordrotate words='numbers,branding,websites,apps,products'> that users <bold>love</bold>",
+  "header-3": "Let’s talk",
+  "header-4": "Browse courses",
+  "showcase-header-title": "Showcase",
+  "showcase-header-subtitle": "Trusted by funded startups and tech giants alike",
+
+  "my-room": {
+    "title": "My room",
+    "lessons": {
+      "title": "Lessons"
+    }
+  },
+  "classroom": {
+    "title": "Classroom"
+  },
+  "bundles": {
+    "title": "Bestselling Video Courses & Bundles"
+  },
+  "write-review": {
+    "page-title": "Welcome to IMGNRS Clubhouse 💜🫶🏻"
+  },
+  "certificates-page": {
+    "page-title": "My Certificates",
+    "texts": {
+      "1": "Certificates",
+      "2": "The iDesigner UX/UI team sincerely congratulates you on the completion of the course!!!"
+    }
+  }
+}

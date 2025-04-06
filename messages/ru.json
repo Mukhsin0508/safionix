@@ -1,0 +1,53 @@
+{
+  "navbar-link-1": "Kurslar",
+  "navbar-link-2": "Kitoblar",
+  "navbar-link-3": "PRO bo’ling 👑",
+  "navbar-link-4": "Klub uyi",
+  "navbar-link-5": "Ko’proq",
+  "navbar-link-6": "Browse bundles",
+  "navbar-link-7": "Foydalanuvchilar",
+  "navbar-link-8": "Ko’proq",
+  "navbar-link-9": "Founder",
+  "navbar-link-10": "Daily Newsletter",
+  "navbar-link-11": "Live Events",
+  "navbar-link-12": "Reviews 💜",
+  "navbar-link-13": "Telegram Chanel",
+  "navbar-link-14": "YouTube Chanel",
+  "navbar-link-15": "About",
+  "navbar-link-16": "Your Room",
+
+  "offer-block": {
+    "text-1": "Limited offer",
+    "text-2": "Get -$20 any bundle with code DES5G2N"
+  },
+
+  "header-1": "Turning 'Impossible' into your competitive advantage",
+  "header-2": "30+ bepul darslar, to'plamlar va kitoblar, <bold>axsus o'quv kurslar.</bold> Biz foydalanuvchilar sevadigan texnologik raqamlarni <bold>loyihalashtiramiz</bold>",
+  "header-3": "Keling suhbatlashamiz",
+  "header-4": "Kurslarni ko'rib chiqing",
+  "showcase-header-title": "Vitrina",
+  "showcase-header-subtitle": "Kompaniyalar g’oyalarini yaratish uchun DesignHub-ni tanlaydilar.",
+
+  "my-room": {
+    "title": "Моя комната",
+    "lessons": {
+      "title": "Lessons"
+    }
+  },
+  "classroom": {
+    "title": "Класс"
+  },
+  "bundles": {
+    "title": "Bestselling Video Courses & Bundles"
+  },
+  "write-review": {
+    "page-title": "Welcome to IMGNRS Clubhouse 💜🫶🏻"
+  },
+  "certificates-page": {
+    "page-title": "My Certificates",
+    "texts": {
+      "1": "Certificates",
+      "2": "The iDesigner UX/UI team sincerely congratulates you on the completion of the course!!!"
+    }
+  }
+}

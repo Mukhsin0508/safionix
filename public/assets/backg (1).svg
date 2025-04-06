@@ -1,0 +1,14 @@
+<svg width="100%" height="100%" viewBox="0 0 250 251" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="86%" height="86%" rx="12" transform="matrix(0.995149 -0.0983817 0.0968113 0.995303 0 19.9091)" fill="#E5E2F5"/>
+<rect width="86%" height="86%" rx="12" transform="matrix(0.999985 -0.00547999 0.00539168 0.999985 14.3589 21.5568)" fill="#E5E2F5" filter="url(#complexShadow)"/>
+<rect width="80%" height="86%" rx="12" transform="matrix(0.979312 -0.202355 0.199225 0.979954 6.94336 49.96)" fill="#E5E2F5" filter="url(#complexShadow)"/>
+<defs>
+    <filter id="complexShadow" x="-100%" y="-100%" width="400%" height="400%">
+        <feDropShadow dx="-3" dy="3" stdDeviation="8" flood-color="#9191911A"/>
+        <feDropShadow dx="-10" dy="11" stdDeviation="15" flood-color="#91919117"/>
+        <feDropShadow dx="-23" dy="26" stdDeviation="21" flood-color="#91919100"/>
+        <feDropShadow dx="-40" dy="46" stdDeviation="24" flood-color="#91919103"/>
+        <feDropShadow dx="-63" dy="72" stdDeviation="27" flood-color="#91919100"/>
+    </filter>
+</defs>
+</svg>
