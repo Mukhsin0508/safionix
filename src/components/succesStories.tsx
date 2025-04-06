@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react'
+import { Bonafit } from '.';
 type Props = {
     className?: string;
   };
@@ -51,6 +52,8 @@ export default function succesStories({ className }: Props) {
                     </div>
                 </div>
         </div>
+
+        <Bonafit />
     </div>
   )
 }
