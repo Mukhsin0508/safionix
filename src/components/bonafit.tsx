@@ -5,7 +5,7 @@ const items = ["App", "Blender", "Figma", "Brand book"];
 
 export default function bonafit() {
   return (
-    <div className='pt-10'>
+    <div className='pt-10 hover:pt-[20px] transition-all'>
 
         <div className='w-[1145px] h-[580px] mx-auto mt-10 rounded-3xl bg-[#FAFAFA] relative overflow-visible  flex flex-col justify-center items-center'>
                         <div className='flex gap-7 '>

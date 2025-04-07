@@ -30,23 +30,23 @@ const CursorDiv = () => {
 
   return (
     <div
-      className="cursor-text"
-      id="cursorText"
-      style={{
-        zIndex: "9999",
-        position: "absolute",
-        top: "0",
-        left: "0",
-        transform: "translate(25%, 25%)",
-        pointerEvents: "none",
-        background: "#7E00E1",
-        color: "#fff",
-        padding: "5px 25px",
-        borderRadius: "3px",
-        transition: "none",
-      }}
+      // className="cursor-text"
+      // id="cursorText"
+      // style={{
+      //   zIndex: "9999",
+      //   position: "absolute",
+      //   top: "0",
+      //   left: "0",
+      //   transform: "translate(25%, 25%)",
+      //   pointerEvents: "none",
+      //   background: "#7E00E1",
+      //   color: "#fff",
+      //   padding: "5px 25px",
+      //   borderRadius: "3px",
+      //   transition: "none",
+      // }}
     >
-      You
+      {/* You */}
     </div>
   )
 }
