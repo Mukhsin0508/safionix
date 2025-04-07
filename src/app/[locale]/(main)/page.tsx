@@ -27,7 +27,7 @@ export default function Home() {
           
         </div>
 
-        <Collaboration  />
+        {/* <Collaboration  /> */}
       </main>
     </div>
   );
