@@ -1,6 +1,5 @@
 import {
   BookingBlock,
-  
   CommentsSection,
   HomeHeader,
   NewProjects,
@@ -27,7 +26,7 @@ export default function Home() {
           
         </div>
 
-        {/* <Collaboration  /> */}
+        <Collaboration  />
       </main>
     </div>
   );
