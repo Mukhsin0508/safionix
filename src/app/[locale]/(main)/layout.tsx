@@ -1,4 +1,4 @@
-import { CursorDiv, Navbar } from "@/components"
+import { CursorDiv, Footer, Navbar } from "@/components"
 import ScrollProgress from "@/components/ui/scroll-progress"
 import { Metadata } from "next"
 
@@ -15,7 +15,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       <CursorDiv />
       <Navbar />
       {children}
-      <footer className="mt-[70vh]">footer</footer>
+      <Footer/>
     </div>
   )
 }

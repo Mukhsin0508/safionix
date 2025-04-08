@@ -1,12 +1,15 @@
 import {
+  Booking,
   BookingBlock,
   CommentsSection,
   HomeHeader,
   NewProjects,
   OfferBlock,
   Partners,
+  Pricing,
   Showcase,
   SkillsPart,
+  StartProject,
   SuccesStories
 } from "@/components";
 import Collaboration from "@/components/Callobaration";
@@ -28,8 +31,11 @@ export default function Home() {
         </div>
         <Collaboration  />
         <div className="container mx-auto px-4">
+         <StartProject/>
           <Partners/>
+          <Pricing/>
         </div>
+        <Booking/>
       </main>
     </div>
   );
