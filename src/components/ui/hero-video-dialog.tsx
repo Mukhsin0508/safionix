@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react"
 import { Play, XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 type AnimationStyle =
   | "from-bottom"
@@ -85,7 +86,7 @@ export default function HeroVideoDialog({
         onClick={() => setIsVideoOpen(true)}
       >
         {thumbnailSrc ? (
-          <img
+          <Image
             src={thumbnailSrc}
             alt={thumbnailAlt}
             width={1920}

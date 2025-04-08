@@ -38,7 +38,7 @@ export default function Dropdown({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [])
+  }, [handleOpenChange])
 
   useEffect(() => {
     if (isOpen && triggerRef.current && contentRef.current) {

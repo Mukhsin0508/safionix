@@ -46,7 +46,7 @@ export default function SkillsPart({ className }: Props) {
             <p className='p-5 text-[12px] text-[#606E80] mt-3 tracking-wider'>Our clients include:</p>
                   {/* //clients */}
                   <div className="px-5 mt-4 mb-2 flex flex-wrap gap-3">
-                          {clients.map((client, index) =>
+                          {clients.map((client: Client, index) =>
                     client.title === 'View all' ? (
                       <button
                         key={index}

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const callobaration = [
@@ -22,7 +23,7 @@ export default function Collaboration() {
         <div className='flex mt-[550px] gap-[90px]  mx-[560px] '>
               {callobaration.map((item) => (
                 <div key={item.id} className='flex flex-col gap-4  px-4'>
-                  <img src={item.img} alt={item.title} className='w-[50px] h-[50px]' />
+                  <Image width={50} height={50} src={item.img} alt={item.title} className='w-[50px] h-[50px]' />
                   <div className='flex flex-col gap-2 '>
                     <h3 className='text-xl font-semibold tracking-wide text-black'>{item.title}</h3>
                     <p className='text-gray-500 w-[258px]  text-start h-[44px]'>{item.description}</p>

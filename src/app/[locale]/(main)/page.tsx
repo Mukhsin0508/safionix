@@ -4,6 +4,7 @@ import {
   HomeHeader,
   NewProjects,
   OfferBlock,
+  Partners,
   Showcase,
   SkillsPart,
   SuccesStories
@@ -25,8 +26,10 @@ export default function Home() {
           <NewProjects />
           
         </div>
-
         <Collaboration  />
+        <div className="container mx-auto px-4">
+          <Partners/>
+        </div>
       </main>
     </div>
   );
