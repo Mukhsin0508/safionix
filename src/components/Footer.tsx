@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
     FaInstagram,
     FaWhatsapp,
@@ -35,9 +36,12 @@ import {
   
           {/* Right (Quote + Heart) */}
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-pink-500 animate-pulse">❤️</span>
+            <Image src={'/assets/heart.png'} width={20} height={20} alt="heart"></Image>
             <span>
-              <span className="text-purple-400 font-medium">Where passion</span>{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent font-medium">
+  Where passion 
+</span>
+
               meets precision - Safionix
             </span>
           </div>
