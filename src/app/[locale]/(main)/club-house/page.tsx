@@ -1,11 +1,12 @@
 import { OfferBlock } from "@/components"
+import CHWork from "@/components/CH-Work"
 import { BorderBeam } from "@/components/magicui/border-beam"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 const ClubHouse = () => {
   return (
-    <div className="container">
+    <div className="">
       <OfferBlock />
       <header className="pb-[8%] relative flex items-end justify-center h-[120dvh] max-h-[756px]">
         <Image
@@ -46,6 +47,7 @@ const ClubHouse = () => {
           </div>
         </div>
       </header>
+      <CHWork/>
     </div>
   )
 }
