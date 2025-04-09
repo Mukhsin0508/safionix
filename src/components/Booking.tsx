@@ -1,12 +1,11 @@
-"use client"
+"use client";
 import React, { useEffect } from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
-import type CalApi from "@calcom/embed-react"; 
 
 export default function Booking() {
   useEffect(() => {
     (async function () {
-      const cal: any = await getCalApi({ namespace: "book.a.call" });
+      const cal = await getCalApi({ namespace: "book.a.call" });
       cal("ui", {
         theme: "dark",
         cssVarsPerTheme: {
@@ -28,21 +27,22 @@ export default function Booking() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00BE3F]"></span>
           </span>
           <span className="flex text-white items-center cursor-pointer">
-            Booking for APR'25
+            Booking for APR&apos;25
           </span>
         </button>
 
         <h2 className="text-4xl max-w-[651px] text-center tracking-wide font-bold text-white mt-10">
-          Turning 'Impossible' into your competitive advantage
+          Turning &apos;Impossible&apos; into your competitive advantage
         </h2>
+
         <p className="text-white text-center mt-5 max-w-[463px] tracking-wide text-base">
-          Currently accepting new projects for April/May 2025—let’s discuss
+          Currently accepting new projects for April/May 2025—let&apos;s discuss
           yours.
         </p>
       </div>
 
       <Cal
-      className="mt-14"
+        className="mt-14"
         namespace="book.a.call"
         calLink="safionix.com/book.a.call"
         style={{ width: "100%", height: "100%", overflow: "scroll" }}

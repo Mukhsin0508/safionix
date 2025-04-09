@@ -3,8 +3,14 @@ import React, { useState } from "react";
 import { Plus } from "lucide-react";
 import Image from "next/image";
 
+interface FaqItem {
+    question: string;
+    short: string;
+    details: string[];
+}
+
 export default function PricingPage() {
-    const faqData = [
+    const faqData: FaqItem[] = [
         {
             question: "What happens if my project scope changes mid-way?",
             short: "We are flexible! We'll discuss the new scope and update the timelines & costs accordingly.",
@@ -70,12 +76,11 @@ export default function PricingPage() {
         },
     ];
 
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-    const toggleIndex = (index: any) => {
+    const toggleIndex = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
     };
-
 
     return (
         <div className="flex justify-center items-start w-full max-w-[1044px] mx-auto gap-20 py-20 px-4">
@@ -88,7 +93,7 @@ export default function PricingPage() {
                 <div className="w-[248px] bg-[#DAE2EA] py-2 rounded-xl flex justify-center items-center gap-2">
                     <Image width={24} height={24} src="/assets/tel.svg" alt="Phone" className="w-6 h-6" />
                     <p className="text-sm font-medium text-center flex items-center gap-1 hover:cursor-pointer hover:gap-3 transition-all">
-                        Let's talk{" "}
+                        Let&apos;s talk{" "}
                         <span className="font-medium text-xl">{">"}</span>
                     </p>
                 </div>
