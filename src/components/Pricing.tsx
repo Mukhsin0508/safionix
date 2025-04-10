@@ -2,7 +2,71 @@
 import React, { useState } from "react";
 import { Plus } from "lucide-react";
 import Image from "next/image";
-
+const faqData: FaqItem[] = [
+    {
+        question: "What happens if my project scope changes mid-way?",
+        short: "We are flexible! We'll discuss the new scope and update the timelines & costs accordingly.",
+        details: [
+            "We'll communicate any changes immediately.",
+            "New scope means updated cost/time but aligned with your goals.",
+            "No surprise bills - everything discussed beforehand.",
+        ],
+    },
+    {
+        question: "Can you collaborate with our in-house team?",
+        short: "Absolutely. We're experienced in integrating seamlessly with in-house teams.",
+        details: [
+            "We adapt to your tools & workflows (Notion, Slack, etc).",
+            "You can assign as many team members as needed.",
+            "Collaboration is central to our process.",
+        ],
+    },
+    {
+        question: "Why not hire designers & developers full-time?",
+        short: "Hiring full-time is great, but we offer flexibility and a broader skill set on-demand.",
+        details: [
+            "Scale up or down any time, no long-term commitment.",
+            "Cost-effective compared to in-house salaries.",
+            "Access to multi-disciplinary skills instantly.",
+        ],
+    },
+    {
+        question: "Safionix vs. other contractors",
+        short: "We stand out with our transparency, flexibility, and multi-disciplinary expertise.",
+        details: [
+            "Clear communication and no hidden fees.",
+            "Access to a wide range of skills.",
+            "Proven track record with diverse projects.",
+        ],
+    },
+    {
+        question: "How do you charge?",
+        short: "We offer both fixed-price and hourly billing models depending on your needs.",
+        details: [
+            "Transparent pricing with no hidden fees.",
+            "Options to choose retainer or pay-as-you-go.",
+            "Pause and resume work when needed.",
+        ],
+    },
+    {
+        question: "What if I only need a small dev or design tasks?",
+        short: "We handle projects of all sizes, from small tasks to large-scale development.",
+        details: [
+            "No project is too small for us.",
+            "Flexible billing for one-off tasks.",
+            "Quick turnaround for smaller needs.",
+        ],
+    },
+    {
+        question: "How soon can you start?",
+        short: "We can start as soon as you're ready, often within a few days.",
+        details: [
+            "Quick onboarding process.",
+            "Availability to kick off immediately.",
+            "We align with your timeline.",
+        ],
+    },
+];
 interface FaqItem {
     question: string;
     short: string;
@@ -10,71 +74,7 @@ interface FaqItem {
 }
 
 export default function PricingPage() {
-    const faqData: FaqItem[] = [
-        {
-            question: "What happens if my project scope changes mid-way?",
-            short: "We are flexible! We'll discuss the new scope and update the timelines & costs accordingly.",
-            details: [
-                "We'll communicate any changes immediately.",
-                "New scope means updated cost/time but aligned with your goals.",
-                "No surprise bills - everything discussed beforehand.",
-            ],
-        },
-        {
-            question: "Can you collaborate with our in-house team?",
-            short: "Absolutely. We're experienced in integrating seamlessly with in-house teams.",
-            details: [
-                "We adapt to your tools & workflows (Notion, Slack, etc).",
-                "You can assign as many team members as needed.",
-                "Collaboration is central to our process.",
-            ],
-        },
-        {
-            question: "Why not hire designers & developers full-time?",
-            short: "Hiring full-time is great, but we offer flexibility and a broader skill set on-demand.",
-            details: [
-                "Scale up or down any time, no long-term commitment.",
-                "Cost-effective compared to in-house salaries.",
-                "Access to multi-disciplinary skills instantly.",
-            ],
-        },
-        {
-            question: "Safionix vs. other contractors",
-            short: "We stand out with our transparency, flexibility, and multi-disciplinary expertise.",
-            details: [
-                "Clear communication and no hidden fees.",
-                "Access to a wide range of skills.",
-                "Proven track record with diverse projects.",
-            ],
-        },
-        {
-            question: "How do you charge?",
-            short: "We offer both fixed-price and hourly billing models depending on your needs.",
-            details: [
-                "Transparent pricing with no hidden fees.",
-                "Options to choose retainer or pay-as-you-go.",
-                "Pause and resume work when needed.",
-            ],
-        },
-        {
-            question: "What if I only need a small dev or design tasks?",
-            short: "We handle projects of all sizes, from small tasks to large-scale development.",
-            details: [
-                "No project is too small for us.",
-                "Flexible billing for one-off tasks.",
-                "Quick turnaround for smaller needs.",
-            ],
-        },
-        {
-            question: "How soon can you start?",
-            short: "We can start as soon as you're ready, often within a few days.",
-            details: [
-                "Quick onboarding process.",
-                "Availability to kick off immediately.",
-                "We align with your timeline.",
-            ],
-        },
-    ];
+    
 
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 

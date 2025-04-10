@@ -39,15 +39,16 @@ export default function Booking() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00BE3F]"></span>
           </span>
           <span className="flex text-white items-center cursor-pointer">
-            Booking for APR'25
+            Booking for APR&#39;25
           </span>
         </button>
         <h2 className="text-4xl max-w-[651px] text-center tracking-wide font-bold text-white mt-10">
-          Turning 'Impossible' into your competitive advantage
-        </h2>
-        <p className="text-white text-center mt-5 max-w-[463px] tracking-wide text-base">
-          Currently accepting new projects for April/May 2025—let's discuss yours.
-        </p>
+  Turning &#39;Impossible&#39; into your competitive advantage
+</h2>
+<p className="text-white text-center mt-5 max-w-[463px] tracking-wide text-base">
+  Currently accepting new projects for April/May 2025—let&#39;s discuss yours.
+</p>
+
       </div>
 
       <div className="flex w-full max-w-4xl mt-10 mx-auto">
