@@ -1,4 +1,6 @@
 import { OfferBlock } from "@/components"
+import EarnPoints from "@/components/CH-EarnPoint"
+import PricingSection from "@/components/CH-PricingSection"
 import CHWork from "@/components/CH-Work"
 import { BorderBeam } from "@/components/magicui/border-beam"
 import { Button } from "@/components/ui/button"
@@ -48,6 +50,8 @@ const ClubHouse = () => {
         </div>
       </header>
       <CHWork/>
+      <EarnPoints/>
+      <PricingSection/>
     </div>
   )
 }

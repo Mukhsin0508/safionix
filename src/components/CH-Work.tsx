@@ -6,7 +6,7 @@ const steps = [
   {
     id: 1,
     title: 'Sign Up & Start',
-    icon: '/assets/crystal.png', // o'zing kerakli iconni joylashtir
+    icon: '/assets/pinkwork1.png',
     points: [
       'Join the exclusive IMGNRS Clubhouse.',
       'Earn 50 bonus points just for joining!',
@@ -15,7 +15,7 @@ const steps = [
   {
     id: 2,
     title: 'Earn points',
-    icon: '/assets/exceeding.png', 
+    icon: '/assets/pinkwork2.png', 
     points: [
       'Shop with us and earn points on every purchase.',
       'Participate in special events to collect extra points.',
@@ -24,7 +24,7 @@ const steps = [
   {
     id: 3,
     title: 'Redeem & Enjoy',
-    icon: '/assets/anticipatory.png', 
+    icon: '/assets/pinkwork2.png', 
     points: [
       'Redeem your points for exclusive Clubhouse rewards.',
       'Enjoy perks like discounts, early access, and members-only gifts!',
@@ -38,15 +38,15 @@ export default function HowItWorks() {
       <h2 className="text-3xl font-bold text-white text-center mb-16">How it works</h2>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {steps.map((step) => (
-          <div key={step.id} className="flex flex-col items-center text-center text-white px-4">
+          <div key={step.id} className="flex flex-col  text-start text-white px-6">
             <Image
               src={step.icon}
               width={60}
               height={60}
               alt={step.title}
-              className="mb-6"
+              className="mb-6 flex items-start"
             />
-            <h3 className="text-xl font-semibold mb-4">{step.title}</h3>
+            <h3 className="text-xl font-semibold mb-4"> {step.id}. {step.title}</h3>
             <ul className="text-gray-400 space-y-2 text-sm">
               {step.points.map((point, idx) => (
                 <li key={idx}>• {point}</li>

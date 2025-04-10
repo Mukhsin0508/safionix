@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import { SixPartners } from '.'
 
 export default function Partners() {
   return (
@@ -29,6 +30,8 @@ export default function Partners() {
             </div>
 
         </div>
+
+        <SixPartners />
 
     </div>
   )
