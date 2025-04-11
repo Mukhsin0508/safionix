@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import Image from 'next/image';
 import React from 'react';
 
 const pricingData = [
@@ -72,67 +72,83 @@ export default function PricingSection() {
           {pricingData.map((plan, index) => (
             <div
               key={index}
-              className={`relative border border-dashed rounded-lg p-6 bg-gray-50 hover:shadow-md transition ${
-                plan.isPopular ? 'border-purple-500' : ''
-              }`}
+              className={`relative ${
+                plan.isPopular
+                  ? 'border  rounded-2xl  rounded-t-none'
+                  : 'border border-gray-200 rounded-2xl'
+              } bg-gray-50 hover:shadow-md transition`}
             >
               {/* Most Popular Badge */}
               {plan.isPopular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                <div className="absolute -top-10 left-1/2 w-[369px]  -translate-x-1/2  text-center bg-[#606E80] tracking-wide  text-white text-base font-bold py-2 rounded-t-2xl rounded-b-none">
                   MOST POPULAR
                 </div>
               )}
 
-              {/* Plan Title and Description */}
-              <h3 className="font-semibold text-gray-800 mb-1">{plan.title}</h3>
-              <p className="text-sm text-gray-500 mb-4">{plan.description}</p>
+              {/* Card Content */}
+              <div className="p-6 ">
+                {/* Plan Title and Description */}
+                <h3
+                  className={`font-semibold text-xl tracking-wide text-gray-800 mb-1 ${
+                    plan.isPopular ? '' : ''
+                  }`}
+                >
+                  {plan.title}
+                </h3>
+                <p className="text-sm text-gray-500 tracking-wider mb-4">{plan.description}</p>
 
-              {/* Pricing */}
-              <div className="mb-4">
-                <div className="flex items-center space-x-2">
-                  <span className="text-gray-500 line-through">
-                    US${plan.originalPrice}
-                  </span>
-                  <span className="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-1 rounded">
-                    SAVE {plan.savePercent}
-                  </span>
-                </div>
-                <div className="flex items-baseline mt-2">
-                  <span className="text-2xl font-bold text-gray-800">
-                    US${plan.discountedPrice}
-                  </span>
-                  <span className="text-sm text-gray-500 ml-1">/mo</span>
-                </div>
-                <p className="text-sm text-gray-500 mt-1">{plan.term}</p>
-                <p className="text-sm text-purple-600 mt-2">
-                  {plan.additionalSave}
-                </p>
-              </div>
-
-              {/* Choose Plan Button */}
-              <button className="w-full bg-black text-white text-sm py-2 px-4 rounded-full hover:bg-gray-800 mb-6">
-                Choose plan →
-              </button>
-
-              {/* Features List */}
-              <ul className="space-y-2">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center space-x-2">
-                    {feature.included ? (
-                      <Check className="w-5 h-5 text-green-500" />
-                    ) : (
-                      <span className="text-gray-400">—</span>
-                    )}
-                    <span
-                      className={`text-sm ${
-                        feature.included ? 'text-gray-600' : 'text-gray-400'
-                      }`}
-                    >
-                      {feature.name}
+                {/* Pricing */}
+                <div className="mb-4 ">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-gray-500 tracking-wide line-through">
+                      US${plan.originalPrice}
                     </span>
-                  </li>
-                ))}
-              </ul>
+                    <span className="bg-purple-100 text-black text-xs font-semibold p-2 tracking-wider rounded-2xl">
+                      SAVE {plan.savePercent}
+                    </span>
+                  </div>
+                  <div className="flex items-baseline mt-2">
+                    <span className="text-sm text-gray-500 ml-1 mr-2">US$ </span>
+                    <span className="text-6xl mt-2 font-semibold text-gray-800">
+                      {plan.discountedPrice}
+                    </span>
+                    <span className="text-sm text-gray-500 ml-1">/mo</span>
+                  </div>
+                  <p className="text-[18px] text-gray-500 mt-2 tracking-wide">For {plan.term}</p>
+                  <p className="text-xl tracking-wide font-semibold text-purple-600 mt-2">
+                    {plan.additionalSave}
+                  </p>
+                </div>
+
+                {/* Choose Plan Button */}
+                <button className={`w-full bg-black border ${
+                    plan.isPopular ? 'text-white' : 'bg-white hover:text-white border-black text-black'
+                  } font-semibold text-sm py-2 px-4 rounded-xl hover:bg-gray-800 mb-6`}>
+                  Choose plan <span className="inline-block align-middle">-&gt;</span>
+                </button>
+
+                <div className="h-[2px] w-full bg-[#8F7FF4]"></div>
+
+                {/* Features List */}
+                <ul className="space-y-2 mt-4">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center space-x-2">
+                      {feature.included ? (
+                        <Image src={'/assets/GreenTick.png'} width={14} height={11} alt="check" />
+                      ) : (
+                        <Image src={'/assets/vector.png'} width={14} height={11} alt="vector" />
+                      )}
+                      <span
+                        className={`text-sm border-b tracking-wide border-dashed mt-1 ${
+                          feature.included ? 'text-[#606E80] border-gray-600' : 'text-gray-400 border-gray-400'
+                        }`}
+                      >
+                        {feature.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
