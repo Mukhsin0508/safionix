@@ -66,28 +66,25 @@ const pricingData = [
 
 export default function PricingSection() {
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-white py-10 sm:py-20 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6">
           {pricingData.map((plan, index) => (
             <div
               key={index}
               className={`relative ${
                 plan.isPopular
-                  ? 'border  rounded-2xl  rounded-t-none'
-                  : 'border border-gray-200 rounded-2xl'
+                  ? 'border rounded-2xl rounded-t-none mt-10 sm:mt-10'
+                  : 'border border-gray-200 rounded-2xl mt-6 sm:mt-0'
               } bg-gray-50 hover:shadow-md transition`}
             >
-              {/* Most Popular Badge */}
               {plan.isPopular && (
-                <div className="absolute -top-10 left-1/2 w-[369px]  -translate-x-1/2  text-center bg-[#606E80] tracking-wide  text-white text-base font-bold py-2 rounded-t-2xl rounded-b-none">
+                <div className="absolute -top-10 left-0 sm:left-1/2 w-full sm:w-[369px] -translate-x-0 sm:-translate-x-1/2 text-center bg-[#606E80] tracking-wide text-white text-base font-bold py-2 rounded-t-2xl rounded-b-none">
                   MOST POPULAR
                 </div>
               )}
 
-              {/* Card Content */}
-              <div className="p-6 ">
-                {/* Plan Title and Description */}
+              <div className="p-4 sm:p-6">
                 <h3
                   className={`font-semibold text-xl tracking-wide text-gray-800 mb-1 ${
                     plan.isPopular ? '' : ''
@@ -97,8 +94,7 @@ export default function PricingSection() {
                 </h3>
                 <p className="text-sm text-gray-500 tracking-wider mb-4">{plan.description}</p>
 
-                {/* Pricing */}
-                <div className="mb-4 ">
+                <div className="mb-4">
                   <div className="flex items-center space-x-2">
                     <span className="text-gray-500 tracking-wide line-through">
                       US${plan.originalPrice}
@@ -109,18 +105,17 @@ export default function PricingSection() {
                   </div>
                   <div className="flex items-baseline mt-2">
                     <span className="text-sm text-gray-500 ml-1 mr-2">US$ </span>
-                    <span className="text-6xl mt-2 font-semibold text-gray-800">
+                    <span className="text-5xl sm:text-6xl mt-2 font-semibold text-gray-800">
                       {plan.discountedPrice}
                     </span>
                     <span className="text-sm text-gray-500 ml-1">/mo</span>
                   </div>
-                  <p className="text-[18px] text-gray-500 mt-2 tracking-wide">For {plan.term}</p>
-                  <p className="text-xl tracking-wide font-semibold text-purple-600 mt-2">
+                  <p className="text-base sm:text-[18px] text-gray-500 mt-2 tracking-wide">For {plan.term}</p>
+                  <p className="text-lg sm:text-xl tracking-wide font-semibold text-purple-600 mt-2">
                     {plan.additionalSave}
                   </p>
                 </div>
 
-                {/* Choose Plan Button */}
                 <button className={`w-full bg-black border ${
                     plan.isPopular ? 'text-white' : 'bg-white hover:text-white border-black text-black'
                   } font-semibold text-sm py-2 px-4 rounded-xl hover:bg-gray-800 mb-6`}>
@@ -129,15 +124,17 @@ export default function PricingSection() {
 
                 <div className="h-[2px] w-full bg-[#8F7FF4]"></div>
 
-                {/* Features List */}
                 <ul className="space-y-2 mt-4">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center space-x-2">
-                      {feature.included ? (
-                        <Image src={'/assets/GreenTick.png'} width={14} height={11} alt="check" />
-                      ) : (
-                        <Image src={'/assets/vector.png'} width={14} height={11} alt="vector" />
-                      )}
+                      <div className="relative w-4 h-4 flex-shrink-0">
+                        <Image 
+                          src={feature.included ? '/assets/GreenTick.png' : '/assets/vector.png'} 
+                          fill
+                          style={{ objectFit: 'contain' }} 
+                          alt={feature.included ? "check" : "vector"} 
+                        />
+                      </div>
                       <span
                         className={`text-sm border-b tracking-wide border-dashed mt-1 ${
                           feature.included ? 'text-[#606E80] border-gray-600' : 'text-gray-400 border-gray-400'
