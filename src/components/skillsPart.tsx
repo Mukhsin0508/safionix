@@ -45,12 +45,12 @@ export default function SkillsPart({ className }: Props) {
           </div>
   
           <p className='p-5 text-[12px] text-[#606E80] mt-3 tracking-wider'>Our clients include:</p>
-          <div className="px-5 mt-4 mb-2 flex flex-wrap gap-3">
+          <div className="px-5 mt-4 mb-6 flex flex-wrap gap-3">
             {clients.map((client: Client, index) =>
               client.title === 'View all' ? (
                 <button
                   key={index}
-                  className="px-5 py-2 bg-gray-800 text-white rounded-lg text-sm font-medium hover:bg-[#7E00E1] transition-colors"
+                  className="px-5 py-[6px] bg-black text-white rounded-lg text-sm font-medium hover:bg-[#7E00E1] transition-colors"
                 >
                   {client.title}
                 </button>
@@ -60,7 +60,7 @@ export default function SkillsPart({ className }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                   key={index}
-                  className="px-5 py-2 bg-white text-gray-500 hover:text-black border border-dashed border-gray-300 rounded-lg text-sm font-medium"
+                  className="px-5 py-[6px] bg-white text-gray-500 hover:text-black border border-dashed border-gray-300 rounded-lg text-sm font-medium"
                 >
                   {client.title}
                 </Link>
@@ -76,7 +76,7 @@ export default function SkillsPart({ className }: Props) {
             {technologies.map((tech, index) => (
               <span
                 key={index}
-                className="px-7 py-2 bg-[#49494C] hover:bg-black text-white border border-dashed border-gray-100 rounded-lg text-sm font-medium"
+                className="px-5 py-[6px] bg-[#49494C] hover:bg-black text-white border border-dashed border-gray-100 rounded-lg text-sm font-medium"
               >
                 {tech}
               </span>
@@ -84,11 +84,11 @@ export default function SkillsPart({ className }: Props) {
           </div>
   
           <p className='p-5 text-[12px] text-white mt-3 tracking-wider'>How fast we do it:</p>
-          <div className="px-5 mb-2 flex flex-wrap gap-3">
+          <div className="px-5 mb-2 flex flex-wrap mt-2 gap-3">
             {deadlines.map((deadline, index) => (
               <span
                 key={index}
-                className="px-5 py-2 bg-[#49494C] text-white hover:bg-black border border-dashed border-gray-300 rounded-lg text-sm font-medium"
+                className="px-5 py-[6px] bg-[#49494C] text-white hover:bg-black border border-dashed border-gray-300 rounded-lg text-sm font-medium"
               >
                 {deadline}
               </span>
@@ -98,15 +98,16 @@ export default function SkillsPart({ className }: Props) {
       </div>
   
       <p className='text-gray-500 text-[13px]'>Our tool stack</p>
-      <div className='flex flex-col mb-5'>
-        <div className='mt-4 flex flex-wrap justify-center gap-6'>
-          <Image width={32} height={32} src="/assets/figma.svg" alt="figma" />
-          <Image width={32} height={32} src="/assets/webflow.svg" alt="webflow" />
-          <Image width={32} height={32} src="/assets/adobe-after-effect.svg" alt="ae" />
-          <Image width={32} height={32} src="/assets/blender.svg" alt="blender" />
-          <Image width={32} height={32} src="/assets/vsCode.svg" alt="vscode" />
+      <div className="flex flex-col mb-7 mt-3">
+          <div className="mt-4 flex flex-wrap justify-center gap-10 sm:gap-14 md:gap-20">
+            <Image width={32} height={32} src="/assets/figma.svg" alt="figma" />
+            <Image width={32} height={32} src="/assets/webflow.svg" alt="webflow" />
+            <Image width={32} height={32} src="/assets/adobe-after-effect.svg" alt="ae" />
+            <Image width={32} height={32} src="/assets/blender.svg" alt="blender" />
+            <Image width={32} height={32} src="/assets/vsCode.svg" alt="vscode" />
+          </div>
         </div>
-      </div>
+
     </div>
   </div>
   

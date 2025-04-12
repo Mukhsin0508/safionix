@@ -27,7 +27,6 @@ export default function Home() {
           <SkillsPart className="mt-[110px]" />
           <SuccesStories className="mt-[110px]" />
           <NewProjects />
-          
         </div>
         <Collaboration  />
         <div className="container mx-auto px-4">
