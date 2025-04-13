@@ -32,7 +32,7 @@ const faqData = [
 ];
 
 export default function StartPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null); 
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState(false);
 
   const toggleIndex = (index: number) => {
@@ -40,67 +40,83 @@ export default function StartPage() {
   };
 
   return (
-    <div className="flex justify-center items-start w-full max-w-[1044px] mx-auto gap-20 py-20 px-4">
-      <div className="flex flex-col justify-between h-[678px]">
-        <div className="flex flex-col gap-4 w-[384px]">
-          <p className="text-sm text-[#606E80]">Pricing</p>
-          <h2 className="font-bold text-4xl leading-snug">
+    <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-[1044px] mx-auto gap-10 md:gap-20 py-10 md:py-20 px-4">
+      <div className="flex flex-col justify-between w-full md:w-[384px] gap-10 md:h-[678px]">
+        <div className="flex flex-col gap-2 md:gap-4 w-full">
+          <p className="text-xs md:text-sm text-[#606E80]">Pricing</p>
+          <h2 className="font-bold text-2xl md:text-4xl leading-snug">
             <span className="text-[#606E80]">We keep it</span> simple <br />
             and flexible.
           </h2>
         </div>
-        <div className="flex flex-col gap-4 w-[384px]">
-          <div className="flex gap-2">
+
+        <div className="flex flex-col gap-4 w-full group relative">
+          <div className="absolute -top-10 md:-top-14 -rotate-3 opacity-0 group-hover:opacity-100 transition-opacity  duration-300 z-10">
+            <button className="relative bg-black text-white px-3 md:px-4 py-1 md:py-2 rounded-xl shadow-md font-semibold text-sm md:text-lg flex items-center">
+              See website {'->'}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-6 md:border-l-8 border-r-6 md:border-r-8 border-t-6 md:border-t-8 border-l-transparent border-r-transparent border-t-black"></span>
+            </button>
+          </div>
+
+          <div className="flex gap-1 md:gap-2">
             {Array.from({ length: 5 }).map((_, index) => (
               <Image
                 key={index}
-                width={6}
-                height={6}
+                width={4}
+                height={4}
                 src="/assets/star.svg"
                 alt="star"
-                className="w-6 h-6"
+                className="w-4 h-4 md:w-6 md:h-6"
               />
             ))}
           </div>
-          <p>
+
+          <p className="text-sm md:text-base">
             Their work helped us increase the{" "}
-            <span className="font-bold text-sm">
+            <span className="font-bold text-xs md:text-sm">
               engagement rate by 25%,
             </span>{" "}
             boost{" "}
-            <span className="font-bold text-sm">
+            <span className="font-bold text-xs md:text-sm">
               user conversion rate by 11%,
             </span>{" "}
             and{" "}
-            <span className="font-bold text-sm">
+            <span className="font-bold text-xs md:text-sm">
               reduce bounce rate by 20%.
             </span>
           </p>
-          <p>
-            Our main &quot;Get Demo&quot; page had a{" "}
-            <span className="font-bold text-sm">30% higher CR,</span> &quot;Pricing&quot; page increased{" "}
-            <span className="font-bold text-sm">by 15% CR,</span> and our main &quot;Homepage&quot; had a CR increase of{" "}
-            <span className="font-bold text-sm">+3.9%.</span>
+          <p className="text-sm md:text-base">
+            Our main "Get Demo" page had a{" "}
+            <span className="font-bold text-xs md:text-sm">30% higher CR,</span>{" "}
+            "Pricing" page increased{" "}
+            <span className="font-bold text-xs md:text-sm">by 15% CR,</span>{" "}
+            and our main "Homepage" had a CR increase of{" "}
+            <span className="font-bold text-xs md:text-sm">+3.9%.</span>
           </p>
-          <div className="flex gap-4">
-            <Image
-              width={100}
-              height={100}
-              src="/assets/jon.png"
-              alt="image"
-              className="w-11 mt-2 h-11"
-            />
+
+          <div className="flex gap-3 md:gap-4 items-center">
+            <div className="relative w-9 h-9 md:w-11 md:h-11">
+              <Image
+                width={100}
+                height={100}
+                src="/assets/jon.png"
+                alt="image"
+                className="w-9 h-9 md:w-11 md:h-11 rounded-full object-cover"
+              />
+            </div>
             <div>
-              <h3 className="font-semibold text-lg">Jonathan Donado</h3>
-              <p className="text-sm">PMO based in California</p>
+              <h3 className="font-semibold text-base md:text-lg">
+                Jonathan Donado
+              </h3>
+              <p className="text-xs md:text-sm">PMO based in California</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 w-full max-w-[600px] mt-10">
-        <div className="flex flex-col gap-4 w-[437px]">
-          <p className="text-xl font-bold tracking-wide">
+      <div className="flex flex-col gap-4 w-full max-w-[600px] mt-6 md:mt-10">
+        <div className="flex flex-col gap-2 md:gap-4 w-full md:w-[437px]">
+          <p className="text-lg md:text-xl font-bold tracking-wide">
             Choose between monthly product retainers <br />
             and one-time fixed projects.
           </p>
@@ -109,15 +125,15 @@ export default function StartPage() {
         {faqData.map((item, index) => (
           <div
             key={index}
-            className="border-b border-[#E5E7EB] mt-10 py-4 cursor-pointer"
+            className="border-b border-[#E5E7EB] mt-6 md:mt-10 py-3 md:py-4 cursor-pointer"
             onClick={() => toggleIndex(index)}
           >
             <div className="flex justify-between items-center">
-              <p className="font-bold text-[16px] text-[#111] transition-colors hover:text-[#606E80]">
+              <p className="font-bold text-sm md:text-[16px] text-[#111] transition-colors hover:text-[#606E80]">
                 {item.question}
               </p>
               <Plus
-                className={`text-red-500 w-8 h-8 transition-transform duration-300 ${
+                className={`text-red-500 w-6 hover:p-1 hover:bg-[#DAE2EA59] hover: h-6 md:w-8 md:h-8 hover:rotate-180 transition-transform duration-300 ${
                   openIndex === index ? "rotate-45" : ""
                 }`}
               />
@@ -131,17 +147,19 @@ export default function StartPage() {
                 opacity: openIndex === index ? 1 : 0,
               }}
             >
-              <div className="mt-4">
-                <p className="text-[#606E80] text-sm mb-2">{item.short}</p>
-                <ul className="text-sm text-[#111] space-y-2">
+              <div className="mt-3 md:mt-4">
+                <p className="text-[#606E80] text-xs md:text-sm mb-2">
+                  {item.short}
+                </p>
+                <ul className="text-xs md:text-sm text-[#111] space-y-2">
                   {item.details.map((point, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <Image
-                        width={4}
-                        height={4}
+                        width={3}
+                        height={3}
                         src="/assets/check.svg"
                         alt="Check"
-                        className="mt-1 w-4 h-4"
+                        className="mt-1 w-3 h-3 md:w-4 md:h-4"
                       />
                       <p>{point}</p>
                     </li>
@@ -153,13 +171,13 @@ export default function StartPage() {
         ))}
 
         <div
-          className="w-[166px] relative group"
+          className="w-[166px] relative group mt-6 md:mt-0"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           <div className="relative overflow-hidden">
             <p className="flex items-center gap-2 w-full font-bold text-sm py-2">
-              Start a new projects
+              Start a new project
               <span className="relative inline-block">
                 <ArrowUpRight
                   className={`absolute top-[-10px] transition-all duration-300 transform ${
