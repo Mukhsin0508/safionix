@@ -1,4 +1,4 @@
-import { OfferBlock } from "@/components"
+import { OfferBlock, Partners, Pricing, StartProject } from "@/components"
 import EarnPoints from "@/components/CH-EarnPoint"
 import PricingSection from "@/components/CH-PricingSection"
 import CHWork from "@/components/CH-Work"
@@ -52,6 +52,11 @@ const ClubHouse = () => {
       <CHWork/>
       <EarnPoints/>
       <PricingSection/>
+      <div className="container mx-auto px-4">
+               <StartProject/>
+                <Partners/>
+                <Pricing/>
+              </div>
     </div>
   )
 }
