@@ -99,7 +99,7 @@ export default function PricingPage() {
             className="w-5 h-5 md:w-6 md:h-6"
           />
           <p className="text-sm font-medium text-center flex items-center gap-1 hover:cursor-pointer hover:gap-3 transition-all">
-            Let's talk{" "}
+            Let&apos;s talk{" "}
             <span className="font-medium text-lg md:text-xl">{">"}</span>
           </p>
         </div>

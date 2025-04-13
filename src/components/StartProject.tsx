@@ -86,11 +86,11 @@ export default function StartPage() {
             </span>
           </p>
           <p className="text-sm md:text-base">
-            Our main "Get Demo" page had a{" "}
+            Our main &quot;Get Demo&quot; page had a{" "}
             <span className="font-bold text-xs md:text-sm">30% higher CR,</span>{" "}
-            "Pricing" page increased{" "}
+            &quot;Pricing&quot; page increased{" "}
             <span className="font-bold text-xs md:text-sm">by 15% CR,</span>{" "}
-            and our main "Homepage" had a CR increase of{" "}
+            and our main &quot;Homepage&quot; had a CR increase of{" "}
             <span className="font-bold text-xs md:text-sm">+3.9%.</span>
           </p>
 
