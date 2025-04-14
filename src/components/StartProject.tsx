@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Plus, ArrowUpRight, ArrowDownRight, ArrowDown01, ArrowDown01Icon } from "lucide-react";
+import { Plus, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const faqData = [
