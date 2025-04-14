@@ -13,9 +13,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 space-y-4 md:space-y-0">
         <div className="flex items-center gap-2 text-sm order-1 md:order-3">
           <Image
-            src={"/assets/heart.png"}
-            width={16}
-            height={16}
+            src={"/assets/heart.svg"}
+            width={10}
+            height={10}
             alt="heart"
             className="w-4 h-4 md:w-5 md:h-5"
           />

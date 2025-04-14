@@ -54,7 +54,7 @@ export default function Booking() {
       <div className="flex w-full max-w-4xl mt-10 mx-auto">
         <button
           onClick={() => setActiveTab("quote")}
-          className={`flex-1 py-4 text-center text-white rounded-tl-2xl font-semibold ${
+          className={`flex-1 py-4 text-center text-white rounded-tl-[12px] font-semibold ${
             activeTab === "quote" ? "bg-black" : "bg-[#232324]"
           }`}
         >
@@ -62,7 +62,7 @@ export default function Booking() {
         </button>
         <button
           onClick={() => setActiveTab("book")}
-          className={`flex-1 py-4 text-center text-white rounded-tr-2xl font-semibold ${
+          className={`flex-1 py-4 text-center text-white rounded-tr-[12px] font-semibold ${
             activeTab === "book" ? "bg-black" : "bg-[#232324]"
           }`}
         >
