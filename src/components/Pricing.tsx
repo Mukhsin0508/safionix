@@ -6,7 +6,7 @@ import Image from "next/image";
 const faqData: FaqItem[] = [
   {
     question: "What happens if my project scope changes mid-way?",
-    short: "We are flexible! We'll discuss the new scope and update the timelines & costs accordingly.",
+    short: "We recognize that priorities may shift, particularly in dynamic industries. For fixed-scope projects, we provide a revised Statement of Work (SOW) to accommodate new requirements. For retainer clients, such adjustments can typically be integrated seamlessly into your ongoing engagement.",
     details: [
       "We'll communicate any changes immediately.",
       "New scope means updated cost/time but aligned with your goals.",
@@ -15,7 +15,7 @@ const faqData: FaqItem[] = [
   },
   {
     question: "Can you collaborate with our in-house team?",
-    short: "Absolutely. We're experienced in integrating seamlessly with in-house teams.",
+    short: "While we operate exclusively online, our process seamlessly bridges offline needs. Through structured virtual meetings, we coordinate and execute offline tasks with the same precision as digital work - whether it's physical product design consultations, print material coordination, or field work guidance.",
     details: [
       "We adapt to your tools & workflows (Notion, Slack, etc).",
       "You can assign as many team members as needed.",
@@ -24,7 +24,7 @@ const faqData: FaqItem[] = [
   },
   {
     question: "Why not hire designers & developers full-time?",
-    short: "Hiring full-time is great, but we offer flexibility and a broader skill set on-demand.",
+    short: "Hiring full-time requires significant resources for recruitment, onboarding, and long-term commitments. With us, you get an experienced senior team that delivers immediately—no overhead, no strings attached. Scale up or pause anytime.",
     details: [
       "Scale up or down any time, no long-term commitment.",
       "Cost-effective compared to in-house salaries.",
@@ -33,7 +33,7 @@ const faqData: FaqItem[] = [
   },
   {
     question: "Safionix vs. other contractors",
-    short: "We stand out with our transparency, flexibility, and multi-disciplinary expertise.",
+    short: "Managing multiple contractors often means fragmented communication and misalignment. DesignMe provides an integrated team with a dedicated project lead, ensuring strategy-to-execution continuity. One team, one vision, zero headaches.",
     details: [
       "Clear communication and no hidden fees.",
       "Access to a wide range of skills.",
@@ -42,7 +42,7 @@ const faqData: FaqItem[] = [
   },
   {
     question: "How do you charge?",
-    short: "We offer both fixed-price and hourly billing models depending on your needs.",
+    short: "For product development & design, we focus on fixed-scope engagements. Projects (e.g., branding, websites, apps) start at $3K with a 70% deposit. You'll receive a transparent quote tailored to your needs.",
     details: [
       "Transparent pricing with no hidden fees.",
       "Options to choose retainer or pay-as-you-go.",
@@ -51,7 +51,7 @@ const faqData: FaqItem[] = [
   },
   {
     question: "What if I only need a small dev or design tasks?",
-    short: "We handle projects of all sizes, from small tasks to large-scale development.",
+    short: "Need a minor website update or design tweak? While we focus on larger projects, we accommodate small tasks for retainer clients. Contact us to discuss your request—we’ll review it, align with your budget, and provide a tailored solution during our kickoff meeting.",
     details: [
       "No project is too small for us.",
       "Flexible billing for one-off tasks.",
@@ -60,7 +60,7 @@ const faqData: FaqItem[] = [
   },
   {
     question: "How soon can you start?",
-    short: "We can start as soon as you're ready, often within a few days.",
+    short: "Work begins immediately upon receiving your 70% deposit. We guarantee project completion by the agreed deadline, with all revisions finalized before handover. ",
     details: [
       "Quick onboarding process.",
       "Availability to kick off immediately.",
@@ -83,7 +83,7 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-[1044px] mx-auto gap-10 md:gap-20 py-10 md:py-20 px-4">
+    <div className="flex flex-col md:flex-row justify-around  gap-10 md:gap-20 py-10 md:py-20 px-4">
       <div className="flex flex-col gap-4 w-full md:w-[300px]">
         <p className="text-xs md:text-sm text-[#606E80]">FAQS</p>
         <h2 className="font-bold text-2xl md:text-4xl leading-snug">
@@ -100,7 +100,9 @@ export default function PricingPage() {
           />
           <p className="text-sm font-medium text-center flex items-center gap-1 hover:cursor-pointer hover:gap-3 transition-all">
             Let&apos;s talk{" "}
-            <span className="font-medium text-lg md:text-xl">{">"}</span>
+            <span className="font-medium text-lg md:text-xl">
+              <Image src={'/assets/qiyshiqverctor.png'} height={8} width={8} alt="qiychiq"/>
+            </span>
           </p>
         </div>
       </div>
@@ -132,23 +134,10 @@ export default function PricingPage() {
               }}
             >
               <div className="mt-3 md:mt-4">
-                <p className="text-[#606E80] text-xs md:text-sm mb-2">
+                <p className="text-[#606E80] bg-[#fafafa] rounded-xl p-3 text-xs md:text-sm mb-2">
                   {item.short}
                 </p>
-                <ul className="text-xs md:text-sm text-[#111] space-y-2">
-                  {item.details.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <Image
-                        width={12}
-                        height={12}
-                        src="/assets/check.svg"
-                        alt="Check"
-                        className="mt-1 w-3 h-3 md:w-4 md:h-4"
-                      />
-                      <p>{point}</p>
-                    </li>
-                  ))}
-                </ul>
+                
               </div>
             </div>
           </div>

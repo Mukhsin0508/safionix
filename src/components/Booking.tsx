@@ -4,7 +4,7 @@ import Cal from "@calcom/embed-react";
 
 function BookCall() {
   return (
-    <div className="w-full lg:w-[60%] p-4">
+    <div className="w-full lg:w-[60%]">
       <Cal
         namespace="book.a.call"
         calLink="safionix.com/book.a.call"
@@ -17,7 +17,7 @@ function BookCall() {
 
 function RequestQuote() {
   return (
-    <div className="w-full lg:w-[60%] p-4">
+    <div className="w-full lg:w-[60%] ">
       <Cal
         namespace="request.a.quote"
         calLink="safionix.com/request.a.quote"
@@ -54,7 +54,7 @@ export default function Booking() {
       <div className="flex w-full max-w-4xl mt-10 mx-auto">
         <button
           onClick={() => setActiveTab("quote")}
-          className={`flex-1 py-4 text-center text-white font-semibold ${
+          className={`flex-1 py-4 text-center text-white rounded-tl-2xl font-semibold ${
             activeTab === "quote" ? "bg-black" : "bg-[#232324]"
           }`}
         >
@@ -62,7 +62,7 @@ export default function Booking() {
         </button>
         <button
           onClick={() => setActiveTab("book")}
-          className={`flex-1 py-4 text-center text-white font-semibold ${
+          className={`flex-1 py-4 text-center text-white rounded-tr-2xl font-semibold ${
             activeTab === "book" ? "bg-black" : "bg-[#232324]"
           }`}
         >
@@ -70,7 +70,7 @@ export default function Booking() {
         </button>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center justify-center  gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-center  ">
         {activeTab === "book" ? <BookCall /> : <RequestQuote />}
       </div>
     </div>

@@ -5,7 +5,7 @@
 *{
   cursor: url('../../../public/assets/cursor.jpeg'), auto;
   
-  button, a{
+  button,Link, a{
     cursor: url('../../../public/assets/HandCursor.jpeg'), auto !important;
   }
 }

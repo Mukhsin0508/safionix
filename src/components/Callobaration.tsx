@@ -40,7 +40,7 @@ export default function Collaboration() {
           Where distance becomes irrelevant and quality takes center stage.
         </p>
 
-        <div className="flex mt-[550px] gap-[90px] px-[0px]">
+        <div className="flex mt-[550px] gap-[90px] justify-center ml-[280px]">
           {callobaration.map((item) => (
             <div key={item.id} className="flex flex-col gap-4 px-4">
               <Image width={50} height={50} src={item.img} alt={item.title} className="w-[50px] h-[50px]" />
@@ -53,21 +53,21 @@ export default function Collaboration() {
         </div>
       </div>
 
-      <div className="md:hidden flex flex-col items-center text-center px-4">
-        <div className="mb-6">
-          <h2 className="text-3xl text-black font-semibold">Seamless Digital</h2>
-          <span className="text-3xl font-semibold text-gray-500">Collaboration</span>
-          <p className="text-gray-500 mt-2 tracking-wide max-w-[300px] mx-auto">
+      <div className="md:hidden flex flex-col gap-2   text-center px-4">
+        <div className="-mb-10   relative">
+          <h2 className="text-4xl text-black mr-10  font-semibold">Seamless Digital</h2>
+          <h3 className="text-4xl tracking-wide mt-4 mr-20 font-semibold text-gray-500">Collaboration</h3>
+          <p className="text-gray-500  mt-3 mr-10  tracking-wider max-w-[300px] ">
             Where distance becomes irrelevant and quality takes center stage.
           </p>
         </div>
 
         <div
           className="w-full h-[300px] bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/bg.png')" }}
+          style={{ backgroundImage: "url('/assets/bgcollab.png')" }}
         ></div>
 
-        <div className="flex flex-col gap-10 mt-10 mb-20">
+        <div className="flex flex-col gap-10 mt-10 mb-20 ">
           {callobaration.map((item) => (
             <div key={item.id} className="flex flex-col items-center gap-4 px-4">
               <Image width={50} height={50} src={item.img} alt={item.title} className="w-[50px] h-[50px]" />
