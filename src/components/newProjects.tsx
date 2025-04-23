@@ -1,6 +1,8 @@
 import React from 'react'
-import RainbowButton from './ui/rainbow-button'
 import Image from 'next/image'
+import { Button } from './ui/button';
+import { AnimatedSubscribeButton } from './magicui/animated-subscribe-button';
+import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 
 export default function NewProjects() {
   return (
@@ -28,41 +30,35 @@ export default function NewProjects() {
         </div>
 
         <div className="w-full flex flex-col md:flex-row items-center gap-4 md:gap-5 mt-8">
-          <RainbowButton
-            key="header-4"
-            variant="light"
-            className="group py-2.5 font-semibold w-full md:w-1/2 flex items-center justify-center gap-1.5"
-          >
-            See all case studies
-            <Image
-              className="size-3 -rotate-90 transform transition-transform duration-200 group-hover:translate-x-[50%]"
-              src="/assets/chevron-right-dark.svg"
-              alt="chevron right dark"
-              width={20}
-              height={12}
-            />
-          </RainbowButton>
+  <AnimatedSubscribeButton className="w-full bg-white">
+    <span className="group inline-flex text-black text-sm items-center">
+      See all case studies
+      <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
+    </span>
+    <span className="group inline-flex text-black items-center">
+      <CheckIcon className="mr-2 size-4 text-black" />
+      Subscribed
+    </span>
+  </AnimatedSubscribeButton>
 
-          <RainbowButton
-            key="header-3"
-            className="py-2.5 font-semibold w-full md:w-1/2 flex items-center justify-center gap-1.5 text-dsgWhiteMain group"
-          >
-            See recent work
-            <Image
-              className="size-3 transform transition-transform duration-200 group-hover:translate-x-[50%]"
-              src="/assets/chevron-right.svg"
-              alt="chevron right"
-              width={20}
-              height={12}
-            />
-          </RainbowButton>
-        </div>
+  <Button className="w-full group" variant="ghost">
+    See recent work
+    <Image
+      className="size-3 transform transition-transform duration-200 group-hover:translate-x-[50%]"
+      src="/assets/chevron-right.svg"
+      alt="chevron right"
+      width={12}
+      height={12}
+    />
+  </Button>
+</div>
+
       </div>
 
       <div className="w-full md:w-[481px] h-[300px] md:h-[480px] bg-[url('/assets/newProjects.png')] bg-cover bg-center relative rounded-b-[40px] md:rounded-3xl mt-10 md:mt-0">
 
-        <div className="hidden md:flex justify-end p-4">
-          <button className="rounded-lg p-[6px] px-4 bg-white flex justify-center items-center gap-1 h-[40px]">
+        <div className="hidden md:flex justify-end p-6 ">
+          <button className="rounded-lg p-[6px] px-4 bg-white flex justify-center items-center gap-2 h-[40px]">
             <span className="relative flex items-center justify-center w-3 h-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00be3fcc] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00BE3F]"></span>

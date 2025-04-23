@@ -18,9 +18,10 @@ export default function Home() {
   return (
     <div>
       <main>
-        <div className="container mx-auto px-4">
-          <OfferBlock />
+        
+          <OfferBlock  />
           <HomeHeader />
+          <div className="container mx-auto px-4">
           <Showcase className="mt-[110px]" />
           <BookingBlock className="mt-[110px]" />
           <CommentsSection className="mt-[110px]" />

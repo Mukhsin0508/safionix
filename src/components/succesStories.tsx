@@ -10,7 +10,7 @@ const items = ["App design", "Dashboard design", "Figma", "UX/UI system"];
 
 export default function SuccessStories({ className }: Props) {
   return (
-    <div className={className}>
+    <div className={`cursorPointer ${className}`}>
       <div className="flex justify-center items-center flex-col text-center">
         <p className="text-gray-500 text-[13px]">How we helped others succeed</p>
         <h2 className="text-3xl font-semibold mt-5">Our success stories</h2>

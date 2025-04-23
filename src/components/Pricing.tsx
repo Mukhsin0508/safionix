@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { Plus } from "lucide-react";
+import { CheckIcon, ChevronRightIcon, Plus } from "lucide-react";
 import Image from "next/image";
+import { AnimatedSubscribeButton } from "./magicui/animated-subscribe-button";
 
 const faqData: FaqItem[] = [
   {
@@ -90,21 +91,25 @@ export default function PricingPage() {
           Your questions, <br />
           <span className="text-[#606E80]">Answered.</span>
         </h2>
-        <div className="w-full md:w-[248px] bg-[#DAE2EA] py-2 rounded-xl flex justify-center items-center gap-2">
-          <Image
-            width={20}
-            height={20}
-            src="/assets/tel.svg"
-            alt="Phone"
-            className="w-5 h-5 md:w-6 md:h-6"
-          />
-          <p className="text-sm font-medium text-center flex items-center gap-1 hover:cursor-pointer hover:gap-3 transition-all">
-            Let&apos;s talk{" "}
-            <span className="font-medium text-lg md:text-xl">
-              <Image src={'/assets/qiyshiqverctor.png'} height={8} width={8} alt="qiychiq"/>
-            </span>
-          </p>
-        </div>
+        <AnimatedSubscribeButton className="w-full md:w-[248px] bg-[#DAE2EA] py-2 rounded-xl flex justify-center items-center gap-2">
+  <span className="group inline-flex items-center text-black text-sm font-medium text-center">
+    <Image
+      width={20}
+      height={20}
+      src="/assets/tel.svg"
+      alt="Phone"
+      className="w-5 h-5 md:w-6 mr-3 md:h-6"
+    />
+    Let&apos;s talk
+    <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
+
+  </span>
+  <span className="group inline-flex text-black items-center text-sm font-medium text-center">
+    <CheckIcon className="mr-2 size-4" />
+    Subscribed
+  </span>
+</AnimatedSubscribeButton>
+
       </div>
 
       <div className="flex flex-col gap-4 w-full max-w-[600px] mt-6 md:mt-0">

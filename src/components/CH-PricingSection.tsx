@@ -1,5 +1,11 @@
+"use client"; // Mark as Client Component
+
 import Image from 'next/image';
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation } from 'swiper';
+
+SwiperCore.use([Navigation]);
 
 const pricingData = [
   {
@@ -64,90 +70,255 @@ const pricingData = [
   },
 ];
 
+interface SwiperSlideProps {
+  children: React.ReactNode;
+  [key: string]: any; 
+}
+
 export default function PricingSection() {
   return (
     <section className="bg-white py-10 sm:py-20 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6">
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6">
           {pricingData.map((plan, index) => (
             <div
               key={index}
-              className={`relative ${
-                plan.isPopular
-                  ? 'border rounded-2xl rounded-t-none mt-10 sm:mt-10'
-                  : 'border border-gray-200 rounded-2xl mt-6 sm:mt-0'
-              } bg-gray-50 hover:shadow-md transition`}
+              className={`${plan.isPopular ? '' : 'pt-10'}`}
             >
-              {plan.isPopular && (
-                <div className="absolute -top-10 left-0 sm:left-1/2 w-full sm:w-[369px] -translate-x-0 sm:-translate-x-1/2 text-center bg-[#606E80] tracking-wide text-white text-base font-bold py-2 rounded-t-2xl rounded-b-none">
-                  MOST POPULAR
-                </div>
-              )}
-
-              <div className="p-4 sm:p-6">
-                <h3
-                  className={`font-semibold text-xl tracking-wide text-gray-800 mb-1 ${
-                    plan.isPopular ? '' : ''
-                  }`}
-                >
-                  {plan.title}
-                </h3>
-                <p className="text-sm text-gray-500 tracking-wider mb-4">{plan.description}</p>
-
-                <div className="mb-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-gray-500 tracking-wide line-through">
-                      US${plan.originalPrice}
-                    </span>
-                    <span className="bg-purple-100 text-black text-xs font-semibold p-2 tracking-wider rounded-2xl">
-                      SAVE {plan.savePercent}
-                    </span>
+              <div
+                className={`relative ${
+                  plan.isPopular
+                    ? 'border rounded-2xl rounded-t-none mt-10 sm: mt-10'
+                    : 'border border-gray-200 rounded-2xl mt-6 sm:mt-0'
+                } bg-gray-50 hover:shadow-md transition`}
+              >
+                {plan.isPopular && (
+                  <div className="absolute -top-10 left-0 sm:left-1/2 w-full sm:w-[369px] -translate-x-0 sm:-translate-x-1/2 text-center bg-[#606E80] tracking-wide text-white text-base font-bold py-2 rounded-t-2xl rounded-b-none">
+                    MOST POPULAR
                   </div>
-                  <div className="flex items-baseline mt-2">
-                    <span className="text-sm text-gray-500 ml-1 mr-2">US$ </span>
-                    <span className="text-5xl sm:text-6xl mt-2 font-semibold text-gray-800">
-                      {plan.discountedPrice}
-                    </span>
-                    <span className="text-sm text-gray-500 ml-1">/mo</span>
-                  </div>
-                  <p className="text-base sm:text-[18px] text-gray-500 mt-2 tracking-wide">For {plan.term}</p>
-                  <p className="text-lg sm:text-xl tracking-wide font-semibold text-purple-600 mt-2">
-                    {plan.additionalSave}
-                  </p>
-                </div>
+                )}
 
-                <button className={`w-full bg-black border ${
-                    plan.isPopular ? 'text-white' : 'bg-white hover:text-white border-black text-black'
-                  } font-semibold text-sm py-2 px-4 rounded-xl hover:bg-gray-800 mb-6`}>
-                  Choose plan <span className="inline-block align-middle">-&gt;</span>
-                </button>
+                <div className="p-4 sm:p-6">
+                  <h3
+                    className={`font-semibold text-xl tracking-wide text-gray-800 mb-1 ${
+                      plan.isPopular ? '' : ''
+                    }`}
+                  >
+                    {plan.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 tracking-wider mb-4">{plan.description}</p>
 
-                <div className="h-[2px] w-full bg-[#8F7FF4]"></div>
-
-                <ul className="space-y-2 mt-4">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center space-x-2">
-                      <div className="relative w-4 h-4 flex-shrink-0">
-                        <Image 
-                          src={feature.included ? '/assets/GreenTick.png' : '/assets/vector.png'} 
-                          fill
-                          style={{ objectFit: 'contain' }} 
-                          alt={feature.included ? "check" : "vector"} 
-                        />
-                      </div>
-                      <span
-                        className={`text-sm border-b tracking-wide border-dashed mt-1 ${
-                          feature.included ? 'text-[#606E80] border-gray-600' : 'text-gray-400 border-gray-400'
-                        }`}
-                      >
-                        {feature.name}
+                  <div className="mb-4">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-gray-500 tracking-wide line-through">
+                        US${plan.originalPrice}
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                      <span className="bg-purple-100 text-black text-xs font-semibold p-2 tracking-wider rounded-2xl">
+                        SAVE {plan.savePercent}
+                      </span>
+                    </div>
+                    <div className="flex items-baseline mt-2">
+                      <span className="text-sm text-gray-500 ml-1 mr-2">US$</span>
+                      <span className="text-5xl sm:text-6xl mt-2 font-semibold text-gray-800">
+                        {plan.discountedPrice}
+                      </span>
+                      <span className="text-sm text-gray-500 ml-1">/mo</span>
+                    </div>
+                    <p className="text-base sm:text-[18px] text-gray-500 mt-2 tracking-wide">
+                      For {plan.term}
+                    </p>
+                    <p className="text-lg sm:text-xl tracking-wide font-semibold text-purple-600 mt-2">
+                      {plan.additionalSave}
+                    </p>
+                  </div>
+
+                  <button
+                    className={`w-full group bg-black border ${
+                      plan.isPopular
+                        ? 'text-white'
+                        : 'bg-white border-black text-black hover:bg-gray-200'
+                    } font-semibold text-sm py-2 px-4 rounded-xl mb-6`}
+                  >
+                    Choose plan
+                    <span>
+                      <Image
+                        className="inline-block ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                        src={
+                          plan.isPopular
+                            ? '/assets/chevron-right.svg'
+                            : '/assets/chevron-right-white.svg'
+                        }
+                        alt="chevron right"
+                        width={6}
+                        height={6}
+                      />
+                    </span>
+                  </button>
+
+                  <div className="h-[2px] w-full bg-[#8F7FF4]"></div>
+
+                  <ul className="space-y-2 mt-4">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center space-x-2">
+                        <div className="relative w-4 h-4 flex-shrink-0">
+                          <Image
+                            src={feature.included ? '/assets/GreenTick.png' : '/assets/vector.png'}
+                            fill
+                            style={{ objectFit: 'contain' }}
+                            alt={feature.included ? 'check' : 'vector'}
+                          />
+                        </div>
+                        <span
+                          className={`text-sm border-b tracking-wide border-dashed mt-1 ${
+                            feature.included
+                              ? 'text-[#606E80] border-gray-600'
+                              : 'text-gray-400 border-gray-400'
+                          }`}
+                        >
+                          {feature.name}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="sm:hidden relative">
+          <Swiper
+            spaceBetween={16}
+            slidesPerView={1}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+          >
+            {pricingData.map((plan, index) => (
+              <SwiperSlide key={index} as="div" {...({} as SwiperSlideProps)}>
+                <div className={`${plan.isPopular ? '' : 'pt-10'}`}>
+                  <div
+                    className={`relative ${
+                      plan.isPopular
+                        ? 'border rounded-2xl rounded-t-none mt-10'
+                        : 'border border-gray-200 rounded-2xl mt-6'
+                    } bg-gray-50 hover:shadow-md transition`}
+                  >
+                    {plan.isPopular && (
+                      <div className="absolute -top-10 left-0 w-full text-center bg-[#606E80] tracking-wide text-white text-base font-bold py-2 rounded-t-2xl rounded-b-none">
+                        MOST POPULAR
+                      </div>
+                    )}
+
+                    <div className="p-4">
+                      <h3
+                        className={`font-semibold text-xl tracking-wide text-gray-800 mb-1 ${
+                          plan.isPopular ? '' : ''
+                        }`}
+                      >
+                        {plan.title}
+                      </h3>
+                      <p className="text-sm text-gray-500 tracking-wider mb-4">{plan.description}</p>
+
+                      <div className="mb-4">
+                        <div className="flex items-center space-x-2">
+                          <span className="text-gray-500 tracking-wide line-through">
+                            US${plan.originalPrice}
+                          </span>
+                          <span className="bg-purple-100 text-black text-xs font-semibold p-2 tracking-wider rounded-2xl">
+                            SAVE {plan.savePercent}
+                          </span>
+                        </div>
+                        <div className="flex items-baseline mt-2">
+                          <span className="text-sm text-gray-500 ml-1 mr-2">US$</span>
+                          <span className="text-5xl mt-2 font-semibold text-gray-800">
+                            {plan.discountedPrice}
+                          </span>
+                          <span className="text-sm text-gray-500 ml-1">/mo</span>
+                        </div>
+                        <p className="text-base text-gray-500 mt-2 tracking-wide">
+                          For {plan.term}
+                        </p>
+                        <p className="text-lg tracking-wide font-semibold text-purple-600 mt-2">
+                          {plan.additionalSave}
+                        </p>
+                      </div>
+
+                      <button
+                        className={`w-full group bg-black border ${
+                          plan.isPopular
+                            ? 'text-white'
+                            : 'bg-white border-black text-black hover:bg-gray-200'
+                        } font-semibold text-sm py-2 px-4 rounded-xl mb-6`}
+                      >
+                        Choose plan
+                        <span>
+                          <Image
+                            className="inline-block ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                            src={
+                              plan.isPopular
+                                ? '/assets/chevron-right.svg'
+                                : '/assets/chevron-right-white.svg'
+                            }
+                            alt="chevron right"
+                            width={6}
+                            height={6}
+                          />
+                        </span>
+                      </button>
+
+                      <div className="h-[2px] w-full bg-[#8F7FF4]"></div>
+
+                      <ul className="space-y-2 mt-4">
+                        {plan.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center space-x-2">
+                            <div className="relative w-4 h-4 flex-shrink-0">
+                              <Image
+                                    src={feature.included ? '/assets/GreenTick.png' : '/assets/vector.png'} 
+
+                                fill
+                                style={{ objectFit: 'contain' }}
+                                alt={feature.included ? 'check' : 'vector'}
+                              />
+                            </div>
+                            <span
+                              className={`text-sm border-b tracking-wide border-dashed mt-1 ${
+                                feature.included
+                                  ? 'text-[#606E80] border-gray-600'
+                                  : 'text-gray-400 border-gray-400'
+                              }`}
+                            >
+                              {feature.name}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <button className="swiper-button-prev absolute top-1/3 left-0 rounded-full -translate-y-1/2 bg-white border shadow-xl text-black hover:bg-gray-200 font-semibold text-sm py-2 px-4  z-10">
+            <Image
+              src="/assets/chevron-left.png"
+              alt="chevron left"
+              width={10}
+              height={10}
+              className="inline-block"
+            />
+          </button>
+          <button className="swiper-button-next absolute top-1/3 right-0 -translate-y-1/2 bg-white border shadow-xl text-black hover:bg-gray-200 font-semibold text-sm py-2 px-4 rounded-full z-10">
+            <Image
+              src="/assets/chevron-right.png"
+              alt="chevron right"
+              width={10}
+              height={10}
+              className="inline-block"
+            />
+          </button>
         </div>
       </div>
     </section>

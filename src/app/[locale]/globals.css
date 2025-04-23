@@ -9,7 +9,12 @@
     cursor: url('../../../public/assets/HandCursor.jpeg'), auto !important;
   }
 }
+@layer components{
 
+  .cursorPointer *{
+    cursor: url('../../../public/assets/HandCursor.jpeg'), auto !important;
+  }
+}
 @layer base {
   :root {
     --font-geist-sans-serif: "Geist", sans-serif;
@@ -133,4 +138,76 @@
   transform: scaleX(0);
   transform-origin: left;
   animation: underline 7s linear forwards;
+}
+
+/* Swiper 6.x Core Styles */
+.swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+
+.swiper-slide-invisible-blank {
+  visibility: hidden;
+}
+
+/* Pagination Styles */
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+
+.swiper-pagination-bullets {
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 100%;
+  background: #000;
+  opacity: 0.2;
+  margin: 0 5px;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #000;
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+  cursor: pointer;
+}
+
+/* Ensure compatibility with Tailwind */
+.swiper-container * {
+  box-sizing: border-box;
 }

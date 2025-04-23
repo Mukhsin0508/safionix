@@ -122,8 +122,16 @@ export default function EarnPoints() {
                 Earn a whopping 1,500 points for every friend who joins.
               </p>
             </div>
-            <button className="mt-4 md:mt-6 bg-black mx-auto text-white text-sm py-2 px-4 rounded-full w-full hover:bg-gray-800 transition">
-              Join the CLUB →
+            <button className="mt-4 md:mt-6 group bg-black mx-auto text-white text-sm py-2 px-4 rounded-full w-full hover:bg-gray-800 transition">
+              Join the CLUB <span>
+                <Image
+                  className="inline-block ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                  src="/assets/chevron-right.svg"
+                  alt="chevron right"
+                  width={6}
+                  height={6}
+                />
+              </span>
             </button>
           </div>
         </div>

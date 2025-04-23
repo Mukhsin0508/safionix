@@ -20,7 +20,7 @@ export default function Footer() {
             className="w-4 h-4 md:w-5 md:h-5"
           />
           <span>
-            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent font-medium">
+            <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-300 bg-clip-text text-transparent font-medium">
               Where passion
             </span>{" "}
             meets precision - Safionix
