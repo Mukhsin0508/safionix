@@ -27,7 +27,7 @@ const Navbar = () => {
     <nav className="container px-[120px] py-7.5 max-xl:px-8">
       <div className="relative flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0 z-[12]">
+        <Link href="/" className="cursorPointer flex-shrink-0 z-[12]">
           <div className="text-dsgblackMain">
             <svg
               width="120"
