@@ -261,7 +261,7 @@ export default function SixPartnersPage() {
                 )} 
 
                 <span
-                  className="text-lg md:text-2xl font-bold text-black"
+                  className="text-lg py-1  md:text-2xl font-bold text-black"
                 >
                   {item.name}
                 </span>

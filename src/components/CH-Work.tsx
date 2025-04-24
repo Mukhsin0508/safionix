@@ -1,4 +1,3 @@
-// components/HowItWorks.tsx
 import Image from 'next/image'
 import React from 'react'
 
@@ -34,20 +33,22 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <div className="bg-[#121213] py-20 px-4">
-      <h2 className="text-3xl font-bold text-white text-center mb-16">How it works</h2>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+    <div className="bg-[#121213] py-24 px-6">
+      <h2 className="text-4xl font-bold text-white text-center mb-24">How it works</h2>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-24 gap-y-20">
         {steps.map((step) => (
-          <div key={step.id} className="flex flex-col  text-start text-white px-6">
+          <div key={step.id} className="flex flex-col px-4 text-white">
             <Image
               src={step.icon}
-              width={60}
-              height={60}
+              width={70}
+              height={70}
               alt={step.title}
-              className="mb-6 flex items-start"
+              className="mb-6"
             />
-            <h3 className="text-xl font-semibold mb-4"> {step.id}. {step.title}</h3>
-            <ul className="text-gray-400 space-y-2 text-sm">
+            <h3 className="text-lg font-semibold mb-3">
+              {step.id}. {step.title}
+            </h3>
+            <ul className="text-gray-400 space-y-3 text-base leading-relaxed">
               {step.points.map((point, idx) => (
                 <li key={idx}>• {point}</li>
               ))}
@@ -58,3 +59,4 @@ export default function HowItWorks() {
     </div>
   )
 }
+

@@ -4,11 +4,11 @@ import Cal from "@calcom/embed-react";
 
 function BookCall() {
   return (
-    <div className="w-full lg:w-[60%]">
+    <div className="w-full lg:w-[60%] ">
       <Cal
         namespace="book.a.call"
         calLink="safionix.com/book.a.call"
-        style={{ width: "100%", height: "700px", overflow: "scroll" }}
+        // style={{ width: "100%", height: "700px", overflow: "scroll" }}
         config={{ layout: "month_view", theme: "dark" }}
       />
     </div>
@@ -21,7 +21,7 @@ function RequestQuote() {
       <Cal
         namespace="request.a.quote"
         calLink="safionix.com/request.a.quote"
-        style={{ width: "100%", height: "700px", overflow: "auto" }}
+        // style={{ width: "100%", height: "700px", overflow: "auto" }}
       />
     </div>
   );
@@ -73,6 +73,7 @@ export default function Booking() {
       <div className="flex flex-col lg:flex-row items-center justify-center  ">
         {activeTab === "book" ? <BookCall /> : <RequestQuote />}
       </div>
+
     </div>
   );
 }

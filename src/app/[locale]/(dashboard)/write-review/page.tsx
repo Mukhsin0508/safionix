@@ -34,7 +34,7 @@ const WriteReview = () => {
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
-              fadeEffect={{ crossFade: true }} // Use crossfade for smoother transitions
+              fadeEffect={{ crossFade: true }} 
               speed={800}
               slidesPerView={1}
               spaceBetween={30}
