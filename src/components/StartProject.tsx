@@ -51,9 +51,9 @@ export default function StartPage() {
         </div>
 
         <div className="flex flex-col gap-4 w-full group relative">
-          <div className="absolute -top-18 md:-top-10 -rotate-3 opacity-0 group-hover:opacity-100 transition-opacity  duration-300 z-10">
-            <button className="relative bg-black text-white px-1 md:px-1 py-1 md:py-1 rounded-xl shadow-md font-semibold text-xs md:text-base flex items-center">
-              See website {'->'}
+          <div className="absolute -top-18 md:-top-12 -rotate-3 opacity-0 group-hover:opacity-100 transition-opacity  duration-300 z-10">
+            <button className="relative bg-black ml-3.5  text-white px-1  md:px-1 py-1 md:py-1  rounded-xl shadow-md font-semibold text-xs md:text-base flex items-center">
+             <a href="https://www.goldenheritagepublishing.com"> See website {'->'}</a>
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-6 md:border-l-8 border-r-6 md:border-r-8 border-t-6 md:border-t-8 border-l-transparent border-r-transparent border-t-black"></span>
             </button>
           </div>
@@ -213,7 +213,7 @@ export default function StartPage() {
     strokeLinejoin="round"
     className={`absolute z-50  top-[-14px] transition-all duration-300 transform ${
       isHovered
-        ? "translate-y-0 opacity-100"
+        ? "translate-y-0 opacity-100" 
         : "translate-y-[10px] opacity-0"
     }`}
   >

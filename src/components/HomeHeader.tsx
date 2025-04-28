@@ -1,10 +1,23 @@
+"use client"
 import { useTranslations } from "next-intl"
 import { RainbowButton, Particles, SparklesText } from "@/components"
 import { renderFormattedText } from "@/lib/utils"
 import Image from "next/image"
+import Link from "next/link"
 
 const HomeHeader = () => {
   const t = useTranslations()
+
+  const handleScroll = () => {
+    const aboutSection = document.getElementById('booking');
+    if (aboutSection) {
+      window.scrollTo({
+        top: aboutSection.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+  
 
   return (
     <header className="relative overflow-hidden pt-[180px] flex justify-center text-dsgBlackMain max-xl:pt-[70px]">
@@ -21,6 +34,7 @@ const HomeHeader = () => {
         </div>
         <div className="w-full max-w-[520px] flex items-center gap-5 mt-5">
           <RainbowButton
+           onClick={handleScroll}
             key="header-3"
             className="py-2.5 font-semibold w-1/2 flex items-center gap-1.5 text-dsgWhiteMain group"
           >
@@ -38,7 +52,7 @@ const HomeHeader = () => {
             variant="light"
             className="grup py-2.5 font-semibold w-1/2 flex items-center gap-1.5"
           >
-            {t("header-4")}
+           <Link href={'become-pro'}> {t("header-4")}</Link>
             <Image
               className="size-3 -rotate-90 transform transition-transform duration-200 group-hover:translate-x-[50%]"
               src="/assets/chevron-right-dark.svg"

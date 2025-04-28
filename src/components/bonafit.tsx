@@ -16,11 +16,11 @@ export default function Bonafit() {
             <p className="font-semibold text-2xl">Bonafit</p>
           </div>
 
-          <p className="mt-5 text-[18px] md:text-[24px]">
+          <p className="mt-5 text-start text-[18px] md:text-[24px]">
             Integrated nutrition tracking, live coaching functionality, healthy meal plan & exercises!
           </p>
 
-          <div className="flex flex-wrap gap-3 mt-5">
+          <div className="flex flex-wrap gap-8 mt-5">
             <p className="px-4 py-1 border tracking-wider text-[#606E80] rounded-2xl">3D Modeling</p>
             <p className="px-4 py-1 border tracking-wider text-[#606E80] rounded-2xl">App</p>
             <p className="px-4 py-1 border tracking-wider text-[#606E80] rounded-2xl">Fitness</p>
@@ -48,7 +48,15 @@ export default function Bonafit() {
           </div>
         </div>
 
-        <div className="hidden md:flex w-[532px] h-[532px] bg-white rounded-2xl" />
+         <div className="w-full md:w-[532px] h-[300px] md:h-[532px] bg-white flex rounded-2xl overflow-hidden">
+                          <Image
+                            src="/assets/case-studies/bonafit.png"
+                            alt="Bonafit case study"
+                            width={532}
+                            height={532}
+                            className="object-cover w-full h-full"
+                          />
+                        </div>
       </div>
     </div>
   );

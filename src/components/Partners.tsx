@@ -225,7 +225,7 @@ export default function SixPartnersPage() {
       )}
 
       {/* SELECTOR BUTTONS WITH PROGRESS INDICATOR */}
-      <div className="flex mt-10 container justify-center">
+      <div className="flex mt-16 container justify-center">
         <div className="flex border-dashed border-2 border-gray-200 container items-center relative overflow-hidden">
           {startIndex > 0 && (
             <div className="absolute left-2 top-1/2 transform -translate-y-1/2 flex md:hidden">
@@ -242,8 +242,8 @@ export default function SixPartnersPage() {
           {partners.map((item, index) => (
             <div
               key={index}
-              className={`w-full flex flex-col justify-center ${
-                activeItem === item.name ? "bg-white" : " bg-gray-100"
+              className={`w-full flex  flex-col justify-center ${
+                activeItem === item.name ? "bg-white" : "bg-[#fafafa]"
               } border-dashed border-l-2 border-gray-200 px-1 md:px-0 py-4 md:py-6 items-center cursor-pointer relative ${
                 visibleItems.includes(item) ? "flex md:flex" : "hidden md:flex"
               } ${isLoadingVideo && activeItem !== item.name ? "opacity-50 pointer-events-none" : ""}`}
@@ -256,7 +256,7 @@ export default function SixPartnersPage() {
                     height={30}
                     src={item.img}
                     alt={item.name}
-                    className="mr-[5px] w-6 h-6 md:w-10 md:h-10 object-contain rounded-full"
+                    className="mr-[5px] w-6 h-6 md:w-10 md:h-10 object-contain "
                   />
                 )} 
 

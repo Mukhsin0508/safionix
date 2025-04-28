@@ -23,7 +23,7 @@ const steps = [
   {
     id: 3,
     title: 'Redeem & Enjoy',
-    icon: '/assets/pinkwork2.png', 
+    icon: '/assets/reedem.png', 
     points: [
       'Redeem your points for exclusive Clubhouse rewards.',
       'Enjoy perks like discounts, early access, and members-only gifts!',

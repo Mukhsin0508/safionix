@@ -31,7 +31,7 @@ export default function Booking() {
   const [activeTab, setActiveTab] = useState("book");
 
   return (
-    <div className="bg-[#121213] min-h-screen px-4 lg:px-10">
+    <div id="booking" className="bg-[#121213] min-h-screen px-4 lg:px-10">
       <div className="flex flex-col items-center pt-10">
         <button className="px-4 flex gap-2 justify-center mt-4 h-[40px] items-center">
           <span className="relative flex items-center justify-center w-3 h-3">

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { CheckIcon, ChevronRightIcon, Plus } from "lucide-react";
+import {  ChevronRightIcon, Plus } from "lucide-react";
 import Image from "next/image";
 import { AnimatedSubscribeButton } from "./magicui/animated-subscribe-button";
 
@@ -104,10 +104,7 @@ export default function PricingPage() {
     <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
 
   </span>
-  <span className="group inline-flex text-black items-center text-sm font-medium text-center">
-    <CheckIcon className="mr-2 size-4" />
-    Subscribed
-  </span>
+  
 </AnimatedSubscribeButton>
 
       </div>

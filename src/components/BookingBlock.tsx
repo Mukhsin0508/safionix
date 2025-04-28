@@ -2,18 +2,25 @@
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { format, toZonedTime } from "date-fns-tz"
-import { Link } from "@/lib/i18n/routing"
 
 const BookingBlock = ({ className }: React.HTMLAttributes<HTMLDivElement>) => {
   const [currentTime, setCurrentTime] = useState(new Date())
 
+  const handleScroll = () => {
+    const aboutSection = document.getElementById('booking');
+    if (aboutSection) {
+      window.scrollTo({
+        top: aboutSection.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
-    // Update time every second
     const timer = setInterval(() => {
       setCurrentTime(new Date())
     }, 2000)
 
-    // Cleanup interval on component unmount
     return () => clearInterval(timer)
   }, [])
   return (
@@ -30,15 +37,15 @@ const BookingBlock = ({ className }: React.HTMLAttributes<HTMLDivElement>) => {
             timeZone: "Asia/Tashkent",
           })}
         </p>
-        <Link href="/booking" className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <span className="relative flex items-center justify-center w-3 h-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00be3fcc] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00BE3F]"></span>
           </span>
-          <p className="text-xs font-semibold text-[#595959]">
+          <p onClick={() => handleScroll()} className="text-xs font-semibold text-[#595959]">
             Booking for 2025
           </p>
-        </Link>
+        </div>
         <p className="text-xs text-color5">
           <UserLocalTime />
         </p>

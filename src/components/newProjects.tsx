@@ -2,7 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 import { Button } from './ui/button';
 import { AnimatedSubscribeButton } from './magicui/animated-subscribe-button';
-import { CheckIcon, ChevronRightIcon } from 'lucide-react';
+import {  ChevronRightIcon } from 'lucide-react';
+import Link from 'next/link';
 
 export default function NewProjects() {
   return (
@@ -31,14 +32,13 @@ export default function NewProjects() {
 
         <div className="w-full flex flex-col md:flex-row items-center gap-4 md:gap-5 mt-8">
   <AnimatedSubscribeButton className="w-full bg-white">
+  <Link href={'/en/see-all-case-studies'}>
     <span className="group inline-flex text-black text-sm items-center">
       See all case studies
       <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
     </span>
-    <span className="group inline-flex text-black items-center">
-      <CheckIcon className="mr-2 size-4 text-black" />
-      Subscribed
-    </span>
+  </Link>
+    
   </AnimatedSubscribeButton>
 
   <Button className="w-full group" variant="ghost">
@@ -58,13 +58,13 @@ export default function NewProjects() {
       <div className="w-full md:w-[481px] h-[300px] md:h-[480px] bg-[url('/assets/newProjects.png')] bg-cover bg-center relative rounded-b-[40px] md:rounded-3xl mt-10 md:mt-0">
 
         <div className="hidden md:flex justify-end p-6 ">
-          <button className="rounded-lg p-[6px] px-4 bg-white flex justify-center items-center gap-2 h-[40px]">
+          <Link href={'/en/see-all-case-studies'} className="cursorPointer rounded-lg p-[6px] px-4 bg-white flex justify-center items-center gap-2 h-[40px]">
             <span className="relative flex items-center justify-center w-3 h-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00be3fcc] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00BE3F]"></span>
             </span>
             <span className="text-sm text-[#171D1B]">New Projects</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

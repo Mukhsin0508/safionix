@@ -48,12 +48,13 @@ export default function SkillsPart({ className }: Props) {
           <div className="px-5 mt-4 mb-6 flex flex-wrap gap-3">
             {clients.map((client: Client, index) =>
               client.title === 'View all' ? (
-                <button
+                <Link href={'/en/see-all-case-studies'}
+                  rel="noopener noreferrer"
                   key={index}
                   className="px-5 py-[6px] bg-black text-white rounded-lg text-sm font-medium hover:bg-[#7E00E1] transition-colors"
                 >
                   {client.title}
-                </button>
+                </Link>
               ) : (
                 <Link
                   href={client.url}
