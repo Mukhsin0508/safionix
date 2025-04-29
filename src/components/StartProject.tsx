@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Plus, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const faqData = [
   {
@@ -40,7 +41,7 @@ export default function StartPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-start  gap-10 md:gap-32 py-10 md:py-20 px-4">
+    <div className="flex flex-col md:flex-row justify-center items-start  gap-10 md:gap-36 py-10 md:py-20 px-4">
       <div className="flex flex-col justify-between w-full md:w-[384px] gap-10 md:h-[678px]">
         <div className="flex flex-col gap-2 md:gap-4 w-full">
           <p className="text-xs md:text-sm text-[#606E80]">Pricing</p>
@@ -51,9 +52,17 @@ export default function StartPage() {
         </div>
 
         <div className="flex flex-col gap-4 w-full group relative">
-          <div className="absolute -top-18 md:-top-12 -rotate-3 opacity-0 group-hover:opacity-100 transition-opacity  duration-300 z-10">
-            <button className="relative bg-black ml-3.5  text-white px-1  md:px-1 py-1 md:py-1  rounded-xl shadow-md font-semibold text-xs md:text-base flex items-center">
-             <a href="https://www.goldenheritagepublishing.com"> See website {'->'}</a>
+          <div className="absolute -top-18 md:-top-16 -rotate-6 opacity-0 group-hover:opacity-100 transition-opacity  duration-300 z-10">
+            <button className="relative bg-black ml-1.5  text-white px-1  md:px-4 py-1 md:py-2  rounded-xl shadow-md font-semibold text-xs md:text-base flex items-center">
+            <Link
+  href="https://www.goldenheritagepublishing.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-1"
+>
+  See website
+  <Image src="/assets/mini.png" width={12} height={12} alt="mini icon" />
+</Link>
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-6 md:border-l-8 border-r-6 md:border-r-8 border-t-6 md:border-t-8 border-l-transparent border-r-transparent border-t-black"></span>
             </button>
           </div>
@@ -71,37 +80,38 @@ export default function StartPage() {
             ))}
           </div>
 
-          <p className="text-sm md:text-base">
+          <p className="text-sm tracking-wide md:text-base">
             Their work helped us increase the{" "}
-            <span className="font-bold text-xs md:text-sm">
+            <span className="font-bold text-xs md:text-base ">
               engagement rate by 25%,
             </span>{" "}
             boost{" "}
-            <span className="font-bold text-xs md:text-sm">
+            <span className="font-bold text-xs md:text-base ">
               user conversion rate by 11%,
             </span>{" "}
             and{" "}
-            <span className="font-bold text-xs md:text-sm">
+            <span className="font-bold text-xs md:text-base ">
               reduce bounce rate by 20%.
             </span>
           </p>
           <p className="text-sm md:text-base">
             Our main &quot;Get Demo&quot; page had a{" "}
-            <span className="font-bold text-xs md:text-sm">30% higher CR,</span>{" "}
+            <span className="font-bold text-xs md:text-base">30% higher CR,</span>{" "}
             &quot;Pricing&quot; page increased{" "}
-            <span className="font-bold text-xs md:text-sm">by 15% CR,</span>{" "}
+            <span className="font-bold text-xs md:text-base">by 15% CR,</span>{" "}
             and our main &quot;Homepage&quot; had a CR increase of{" "}
-            <span className="font-bold text-xs md:text-sm">+3.9%.</span>
+            <span className="font-bold text-xs md:text-base">+3.9%.</span>
           </p>
 
           <div className="flex gap-3 md:gap-4 items-center">
             <div className="relative w-9 h-9 md:w-11 md:h-11">
               <Image
-                width={100}
-                height={100}
-                src="/assets/jon.png"
-                alt="image"
-                className="w-9 h-9 md:w-11 md:h-11 rounded-full object-cover"
+                width={44}
+                height={44}
+                src="/assets/jon.svg"
+                alt="jon"
+                unoptimized
+                className="w-9 h-9 md:w-11 md:h-11  "
               />
             </div>
             <div>
@@ -114,7 +124,7 @@ export default function StartPage() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 w-full max-w-[600px] mt-6 md:mt-10">
+      <div className="flex flex-col p-1 gap-4 w-full max-w-[600px] mt-6 md:mt-10">
         <div className="flex flex-col gap-2 md:gap-4 w-full md:w-[444px]">
           <p className="text-lg md:text-xl font-bold tracking-wide">
             Choose between <span className="underline decoration-[#7e00e1] decoration-2 underline-offset-4">monthly product retainers </span><br />
@@ -136,7 +146,7 @@ export default function StartPage() {
         {item.question}
       </p>
       <Plus
-        className={`text-red-500 w-6 hover:p-1 hover:bg-[#DAE2EA59] hover:rotate-180 h-6 md:w-8 md:h-8 transition-transform duration-300 ${
+        className={`text-red-500 w-6 hover:p-1 mb-1 hover:bg-[#DAE2EA59] hover:rotate-180 h-6 md:w-8 md:h-8 transition-transform duration-300 ${
           openIndex === index ? "rotate-45" : ""
         }`}
       />
@@ -147,7 +157,7 @@ export default function StartPage() {
         height: "1px",
         backgroundColor: "#dae2ea",
         marginTop: "4px",
-        opacity: openIndex === index ? 1 : 0,
+        opacity: openIndex === index ? 0 : 0,
         transition: "opacity 300ms ease-in-out",
       }}
     ></div>
@@ -160,11 +170,12 @@ export default function StartPage() {
         opacity: openIndex === index ? 1 : 0,
       }}
     >
+
       <div className="mt-3 md:mt-4">
         <p className="text-[#606E80] text-xs md:text-sm mb-2">
           {item.short}
         </p>
-        <ul className="text-xs md:text-base text-[#111] space-y-2">
+        <ul className="text-xs md:text-sm text-[#111] space-y-2">
           {item.details.map((point, i) => (
             <li key={i} className="flex items-start gap-3">
               <Image
@@ -182,9 +193,6 @@ export default function StartPage() {
     </div>
   </div>
 ))}
-
-
-
         <div
           className="w-[166px] relative group mt-6 md:mt-0"
           onMouseEnter={() => setIsHovered(true)}

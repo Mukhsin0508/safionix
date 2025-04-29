@@ -57,7 +57,7 @@ const partners = [
     person: {
       name: "KRI Institute",
       title: "krinstitut.com",
-      profileImage: "/assets/KriLogo.svg",
+      profileImage: "/assets/kri.png",
     },
   },
   {
@@ -71,7 +71,7 @@ const partners = [
     person: {
       name: "AHA team",
       title: "AHA research team",
-      profileImage: "/assets/AhaLogo.svg",
+      profileImage: "/assets/mask.png",
     },
   },
   {
@@ -189,10 +189,10 @@ export default function SixPartnersPage() {
             <div className="flex gap-2 md:gap-2 mt-6 md:mt-12">
               <Image
                 src={activePartner.person.profileImage}
-                width={40}
-                height={40}
+                width={44}
+                height={44}
                 alt={activePartner.person.name}
-                className="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full object-cover"
+                className="w-10 h-10 md:w-[44px] md:h-[44px] "
               />
               <div>
                 <h3 className="font-semibold text-base md:text-lg">
@@ -244,7 +244,7 @@ export default function SixPartnersPage() {
               key={index}
               className={`w-full flex  flex-col justify-center ${
                 activeItem === item.name ? "bg-white" : "bg-[#fafafa]"
-              } border-dashed border-l-2 border-gray-200 px-1 md:px-0 py-4 md:py-6 items-center cursor-pointer relative ${
+              } border-dashed border-l-2 md:rounded-sm border-gray-200 px-1 md:px-0 py-4 md:py-6 items-center cursor-pointer relative ${
                 visibleItems.includes(item) ? "flex md:flex" : "hidden md:flex"
               } ${isLoadingVideo && activeItem !== item.name ? "opacity-50 pointer-events-none" : ""}`}
               onClick={() => handleClick(item.name)}

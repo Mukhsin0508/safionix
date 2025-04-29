@@ -20,8 +20,8 @@ interface Client {
 
 export default function SkillsPart({ className }: Props) {
   return (
-    <div className={className}>
-    <div className='flex justify-center items-center flex-col text-center'>
+    <div id='services' className={className}>
+    <div className='flex justify-center  items-center flex-col text-center'>
       <p className='text-gray-500 text-[13px]'>What we do</p>
       <h2 className='text-3xl font-semibold mt-5'>From concept to code. Full scope </h2>
       <h2 className='text-3xl font-semibold text-gray-500'>Service to get you from 0 -{'>'} 1</h2>

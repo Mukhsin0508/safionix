@@ -28,17 +28,17 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4 order-2 md:order-1">
-          <Link href="/terms" className="hover:text-white transition">
+          <Link href="/en/terms" className="hover:text-white transition">
             Terms of Service
           </Link>
-          <Link href="/privacy" className="hover:text-white transition">
+          <Link href="/en/privacy" className="hover:text-white transition">
             Privacy Policy
           </Link>
         </div>
 
         <div className="flex gap-4 text-lg md:text-xl text-gray-500 order-3 md:order-2">
           <Link
-            href="https://instagram.com"
+            href="https://www.instagram.com/safionix"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition"
@@ -46,7 +46,7 @@ export default function Footer() {
             <FaInstagram />
           </Link>
           <Link
-            href="https://wa.me"
+            href=" https://chat.whatsapp.com/JkvSJrD0FfT0MyVUVmPr62"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition"
@@ -54,7 +54,7 @@ export default function Footer() {
             <FaWhatsapp />
           </Link>
           <Link
-            href="https://t.me"
+            href="https://t.me/idesign_ux_ui"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition"
@@ -62,7 +62,7 @@ export default function Footer() {
             <FaTelegramPlane />
           </Link>
           <Link
-            href="https://linkedin.com"
+            href=" https://www.linkedin.com/in/sevara-abdukhalilova/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition"

@@ -13,6 +13,14 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
+  const handleScrollToId = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+  
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20
@@ -66,19 +74,30 @@ const Navbar = () => {
               )}
             >
               {[
-                { name: "navbar-link-1", link: "bundles" },
-                { name: "navbar-link-2", link: "services" },
-                { name: "navbar-link-3", link: "become-pro" },
-                { name: "navbar-link-4", link: "club-house" },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  href={`/${item.link}`}
-                  className="text-sm transition-colors text-dsgBlackMain hover:text-dsgBinafshaSecondary"
-                >
-                  {t(item.name)}
-                </Link>
-              ))}
+  { name: "navbar-link-1", link: "bundles" },
+  { name: "navbar-link-2", link: "services", scrollToId: true },
+  { name: "navbar-link-3", link: "become-pro" },
+  { name: "navbar-link-4", link: "club-house" },
+].map((item) =>
+  item.scrollToId ? (
+    <button
+      key={item.name}
+      onClick={() => handleScrollToId(item.link)}
+      className="text-sm transition-colors text-dsgBlackMain hover:text-dsgBinafshaSecondary"
+    >
+      {t(item.name)}
+    </button>
+  ) : (
+    <Link
+      key={item.name}
+      href={`/${item.link}`}
+      className="text-sm transition-colors text-dsgBlackMain hover:text-dsgBinafshaSecondary"
+    >
+      {t(item.name)}
+    </Link>
+  )
+)}
+
 
               <Dropdown
                 onOpenChange={setDropdownOpen}
