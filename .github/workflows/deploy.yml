@@ -34,7 +34,8 @@ jobs:
 
       # 4) Compress build (lighter rsync)
       - run: |
-          tar czf site.tgz .next public package*.json ecosystem.config.cjs
+          # Make sure package-lock.json is included for npm ci to work
+          tar czf site.tgz .next public package.json package-lock.json ecosystem.config.cjs
           # add other folders you need at runtime (e.g. apps, prisma, etc.)
 
       - name: Add SSH key for EC2
@@ -54,9 +55,13 @@ jobs:
             sudo tar xzf /tmp/site.tgz -C ${{ env.TARGET_DIR }} --strip-components=1
             cd ${{ env.TARGET_DIR }}
           
-            # install prod deps only the first time (kept for next deploys)
-            if [ ! -d node_modules ]; then
-              npm ci --only=production --legacy-peer-deps
+            # Install prod dependencies (with safer fallback options)
+            if [ -f package-lock.json ]; then
+              # Try npm ci first (faster, more reliable when lock file exists)
+              npm ci --only=production --legacy-peer-deps || npm install --only=production --legacy-peer-deps
+            else
+              # Fallback to regular install if no lock file
+              npm install --only=production --legacy-peer-deps
             fi
           
             # Check if the app is already registered with PM2
