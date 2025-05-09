@@ -1,3 +1,23 @@
+// ─── static-export helpers for the [slug] dynamic route ──────────────
+export const dynamic = 'force-static';   // force SSG, no server render
+
+export async function generateStaticParams() {
+  // 🔴  Replace this array with the REAL lesson slugs you want baked into HTML
+  const slugs = ['intro-to-ai', 'python-basics', 'react-hooks'];
+
+  // We already export the site in three languages
+  const locales = ['en', 'ru', 'uz'];
+
+  // Build every language/slug combination
+  return locales.flatMap(locale =>
+      slugs.map(slug => ({ locale, slug }))
+  );
+}
+// ─────────────────────────────────────────────────────────────────────
+
+// (keep your existing imports/components *below* this helper)
+
+
 import {
   DashboardPrimaryTitle,
   HomeworkCheckForm,

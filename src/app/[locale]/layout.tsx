@@ -1,37 +1,53 @@
-import type { Metadata } from "next"
-import { Geist } from "next/font/google"
-import "./globals.css"
-import { getMessages } from "next-intl/server"
-import { NextIntlClientProvider } from "next-intl"
+// ─── Static-export helpers ────────────────────────────────────────────
+export const dynamic = 'force-static';           // don’t switch to SSR
+
+export async function generateStaticParams() {
+  // Tell Next to emit /en, /ru and /uz versions of every page
+  return [
+    { locale: 'en' },
+    { locale: 'ru' },
+    { locale: 'uz' },
+  ];
+}
+// ──────────────────────────────────────────────────────────────────────
+
+import type { ReactNode } from 'react';
+import type { Metadata } from 'next';
+import { Geist } from 'next/font/google';
+import { getMessages } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
+
+import './globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
-  title: "Safionix",
-  description: "design",
-}
+  title: 'Safionix',
+  description: 'design',
+};
 
 export default async function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: Promise<{ locale: string }>
+                                           children,
+                                           params,
+                                         }: {
+  children: ReactNode;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages()
+  const { locale } = params;                // not a Promise ➜ plain object
+  const messages = await getMessages({     // fetch the right locale bundle
+    locale,
+  });
+
   return (
-    <html lang={locale}>
+      <html lang={locale}>
       <body className={`${geistSans.variable} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        {children}
+      </NextIntlClientProvider>
       </body>
-    </html>
-  )
+      </html>
+  );
 }
