@@ -6,8 +6,8 @@ on:
     branches: [ main ]
 
 env:                      # << handy aliases so you don't repeat yourself
-  HOST:  ${{ secrets.EC2_HOST }}     # e.g. 34.235.146.35  (no user, no ssh://)
-  USER:  ubuntu                      # or ec2-user for Amazon Linux
+  HOST:  ${{ secrets.HOST }}     # e.g. 34.235.146.35  (no user, no ssh://)
+  USER:  ${{ secrets.USER }}                      # or ec2-user for Amazon Linux
   TARGET_DIR:  /var/www/safionix     # where PM2 reads the code
   NODE_VERSION:  '20.x'
 
