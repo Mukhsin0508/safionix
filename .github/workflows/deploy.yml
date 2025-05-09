@@ -8,69 +8,63 @@ on:
       - main
 
 env:
-  NODE_VERSION:   '20.x'
-  TARGET_DIR:     /var/www/safionix
-  EC2_HOST:       ubuntu@ec2-34-235-146-35.compute-1.amazonaws.com
+  TARGET_DIR: /var/www/safionix
+  NODE_VERSION: '20.x'
+  EC2_HOST: ubuntu@ec2-34-235-146-35.compute-1.amazonaws.com
 
 jobs:
   deploy:
-    # only when a PR is merged (not just closed)
+    # Only run when PRs are merged, not when they're closed without merging
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
     steps:
-      # 1) checkout
+      # 1) Checkout repo
       - uses: actions/checkout@v4
 
-      # 2) node + cache
+      # 2) Cache node_modules for faster builds
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      # 3) build
+      # 3) Install & build
       - run: |
           npm ci --legacy-peer-deps
           npm run build
 
-      # 4) pack
+      # 4) Compress build (lighter rsync)
       - run: |
-          tar czf site.tgz \
-            .next public package*.json ecosystem.config.cjs
+          tar czf site.tgz .next public package*.json ecosystem.config.cjs
+          # add other folders you need at runtime (e.g. apps, prisma, etc.)
 
-      # 5) add SSH key
-      - name: Add SSH key
+      - name: Add SSH key for EC2
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
-      # 6) deploy + unpack + restart
-      - name: Rsync & restart
+      # 6) Upload + unpack + restart PM2
+      - name: Rsync bundle & restart app
         run: |
-          # sync build to EC2
-          rsync -avz --delete \
-            -e "ssh -o StrictHostKeyChecking=no" \
-            site.tgz "${EC2_HOST}:/tmp/site.tgz"
-
-          # unpack & pm2-managed restart
-          ssh -o StrictHostKeyChecking=no "${EC2_HOST}" << 'EOF'
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" --delete site.tgz ${{ env.EC2_HOST }}:/tmp/site.tgz
+          
+          # Pass the TARGET_DIR variable explicitly to the SSH command
+          ssh -o StrictHostKeyChecking=no ${{ env.EC2_HOST }} "
             set -e
-            sudo mkdir -p ${TARGET_DIR}
-            sudo tar xzf /tmp/site.tgz \
-              -C ${TARGET_DIR} --strip-components=1
-            cd ${TARGET_DIR}
-
-            # install production deps first time
+            sudo mkdir -p ${{ env.TARGET_DIR }}
+            sudo tar xzf /tmp/site.tgz -C ${{ env.TARGET_DIR }} --strip-components=1
+            cd ${{ env.TARGET_DIR }}
+          
+            # install prod deps only the first time (kept for next deploys)
             if [ ! -d node_modules ]; then
               npm ci --only=production --legacy-peer-deps
             fi
-
-            # start or reload with PM2
+          
+            # Check if the app is already registered with PM2
             if pm2 list | grep -q 'safionix'; then
               pm2 reload ecosystem.config.cjs
             else
               pm2 start ecosystem.config.cjs
             fi
-
+          
             rm /tmp/site.tgz
-          EOF
+          "
