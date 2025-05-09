@@ -52,7 +52,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no ${{ env.EC2_HOST }} "
             set -e
             sudo mkdir -p ${{ env.TARGET_DIR }}
-            sudo tar xzf /tmp/site.tgz -C ${{ env.TARGET_DIR }} --strip-components=1
+            sudo tar xzf /tmp/site.tgz -C ${{ env.TARGET_DIR }}
           
             # Fix permissions for the current user
             sudo chown -R ubuntu:ubuntu ${{ env.TARGET_DIR }}
