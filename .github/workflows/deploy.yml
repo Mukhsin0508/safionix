@@ -1,0 +1,61 @@
+# .github/workflows/deploy.yml
+name: 🚀  Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]
+
+env:                      # << handy aliases so you don't repeat yourself
+  HOST:  ${{ secrets.EC2_HOST }}     # e.g. 34.235.146.35  (no user, no ssh://)
+  USER:  ubuntu                      # or ec2-user for Amazon Linux
+  TARGET_DIR:  /var/www/safionix     # where PM2 reads the code
+  NODE_VERSION:  '20.x'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # 1) Checkout repo
+    - uses: actions/checkout@v4
+
+    # 2) Cache node_modules for faster builds
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    # 3) Install & build
+    - run: |
+        npm ci --legacy-peer-deps
+        npm run build                    # creates .next or dist
+    # 4) Compress build (lighter rsync)
+    - run: |
+        tar czf site.tgz .next public package*.json ecosystem.config.cjs
+        # add other folders you need at runtime (e.g. apps, prisma, etc.)
+
+    # 5) Prep SSH
+    - name: Add EC2 key
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+    - name: Trust EC2 host fingerprint
+      run: |
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+
+    # 6) Upload + unpack + restart PM2
+    - name: Rsync bundle & restart app
+      run: |
+        rsync -avz --delete site.tgz $USER@$HOST:/tmp/site.tgz
+        ssh $USER@$HOST <<'EOF'
+          set -e
+          sudo mkdir -p $TARGET_DIR
+          sudo tar xzf /tmp/site.tgz -C $TARGET_DIR --strip-components=1
+          cd $TARGET_DIR
+          # install prod deps only the first time (kept for next deploys)
+          if [ ! -d node_modules ]; then
+            npm ci --only=production --legacy-peer-deps
+          fi
+          pm2 startOrReload ecosystem.config.cjs   # or: pm2 reload safionix
+          rm /tmp/site.tgz
+        EOF
